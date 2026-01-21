@@ -2,10 +2,7 @@ import { create } from "zustand";
 import type { DemoType } from "@/hooks/useDemoMode";
 import {
   PWA_SEED_DATA,
-  PWACITY_SEED_DATA,
-  PWAHEALTH_SEED_DATA,
   type DemoConversation,
-  type DemoMessage,
 } from "@/data/demoSeedData";
 
 interface DemoUser {
@@ -16,8 +13,6 @@ interface DemoUser {
 
 interface SeededConversations {
   pwa: DemoConversation[];
-  pwacity: DemoMessage[];
-  pwahealth: DemoMessage[];
 }
 
 interface DemoState {
@@ -51,8 +46,6 @@ export const useDemoStore = create<DemoState>((set, get) => ({
   demoUser: DEFAULT_DEMO_USER,
   seededConversations: {
     pwa: PWA_SEED_DATA,
-    pwacity: PWACITY_SEED_DATA,
-    pwahealth: PWAHEALTH_SEED_DATA,
   },
 
   // Inicializar modo demo

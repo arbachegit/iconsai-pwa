@@ -11,7 +11,6 @@ import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
 import { AudioPlayerProvider } from "./contexts/AudioPlayerContext";
 import { FloatingAudioPlayer } from "./components/FloatingAudioPlayer";
-import { useApiRegistrySync } from "./hooks/useApiRegistrySync";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { BannedScreen } from "./components/BannedScreen";
@@ -25,9 +24,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const AdminSignup = lazy(() => import("./pages/AdminSignup"));
 const AdminResetPassword = lazy(() => import("./pages/AdminResetPassword"));
 const Documentation = lazy(() => import("./pages/Documentation"));
-const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Arquitetura = lazy(() => import("./pages/Arquitetura"));
-const DashboardAdmin = lazy(() => import("./pages/DashboardAdmin"));
 const AppPage = lazy(() => import("./pages/AppPage"));
 const Hub = lazy(() => import("./pages/Hub"));
 const PWAVoiceAssistant = lazy(() => import("./components/pwa/voice/PWAVoiceAssistant"));
@@ -35,8 +32,7 @@ const InvitePage = lazy(() => import("./pages/InvitePage"));
 const Contact = lazy(() => import("./pages/Contact"));
 const TestRetailDiagram = lazy(() => import("./pages/TestRetailDiagram"));
 const PWARegisterPage = lazy(() => import("./pages/PWARegisterPage"));
-const PWACityPage = lazy(() => import("./pages/PWACityPage"));
-const PWAHealthPage = lazy(() => import("./pages/PWAHealthPage"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
 
 // Simple loading fallback
 const PageLoader = () => (
@@ -46,12 +42,6 @@ const PageLoader = () => (
 );
 
 const queryClient = new QueryClient();
-
-// Component that activates API Registry sync
-const ApiRegistrySyncProvider = ({ children }: { children: React.ReactNode }) => {
-  useApiRegistrySync();
-  return <>{children}</>;
-};
 
 // Security wrapper component
 interface BanInfo {
@@ -170,7 +160,6 @@ const App = () => (
         <TooltipProvider>
           <SecurityWrapper>
             <DemoCleanupWrapper>
-              <ApiRegistrySyncProvider>
                 <Toaster />
                 <Sonner />
                 <DemoModeIndicator />
@@ -197,20 +186,6 @@ const App = () => (
                         </ProtectedRoute>
                       </DeviceGate>
                     } />
-                    <Route path="/dashboard" element={
-                      <DeviceGate mobileShowChat={true}>
-                        <ProtectedRoute requiredRole="admin">
-                          <DashboardAdmin />
-                        </ProtectedRoute>
-                      </DeviceGate>
-                    } />
-                    <Route path="/admin/dashboard" element={
-                      <DeviceGate allowMobile={false}>
-                        <ProtectedRoute requiredRole="admin">
-                          <Dashboard />
-                        </ProtectedRoute>
-                      </DeviceGate>
-                    } />
                     <Route path="/admin" element={
                       <DeviceGate allowMobile={false}>
                         <ProtectedRoute requiredRole="superadmin">
@@ -218,7 +193,14 @@ const App = () => (
                         </ProtectedRoute>
                       </DeviceGate>
                     } />
-                    
+                    <Route path="/dashboard" element={
+                      <DeviceGate allowMobile={false}>
+                        <ProtectedRoute requiredRole="admin">
+                          <Dashboard />
+                        </ProtectedRoute>
+                      </DeviceGate>
+                    } />
+
                     {/* Public Routes */}
                     <Route path="/docs" element={<Documentation />} />
                     <Route path="/arquitetura" element={<Arquitetura />} />
@@ -245,12 +227,6 @@ const App = () => (
                       </DeviceGate>
                     } />
 
-                    {/* PWA City Route - Mobile Only (com toggle para admin/superadmin) */}
-                    <Route path="/pwacity" element={<PWACityPage />} />
-
-                    {/* PWA Health Route - Mobile Only (com toggle para admin/superadmin) */}
-                    <Route path="/pwahealth" element={<PWAHealthPage />} />
-
                     {/* Temporary test route */}
                     <Route path="/test/retail-diagram" element={<TestRetailDiagram />} />
                     
@@ -261,7 +237,6 @@ const App = () => (
               </BrowserRouter>
               {/* Global Floating Audio Player */}
               <FloatingAudioPlayer />
-            </ApiRegistrySyncProvider>
           </DemoCleanupWrapper>
         </SecurityWrapper>
         </TooltipProvider>

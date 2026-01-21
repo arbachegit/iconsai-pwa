@@ -10,10 +10,6 @@
  * ============================================================
  */
 
-// PWA Health Module (Chat de texto para saúde)
-export { PWAHealthModule, HEALTH_MODULE_CONFIG, HEALTH_THEME, HEALTH_TEXTS } from "./pwa-health";
-export type { HealthAgentResponse, HealthAgentParams } from "./pwa-health";
-
 // PWA Voice Module (Componentes de voz)
 export {
   VOICE_MODULE_CONFIG,

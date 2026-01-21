@@ -22,8 +22,6 @@ export function useDemoCleanup() {
       const keysToRemove = [
         "pwa-voice-v2-storage",
         "pwa-history-storage",
-        "pwacity-verified-phone",
-        "pwahealth-verified-phone",
         "pwa-auth-storage",
       ];
 
@@ -58,8 +56,6 @@ export function useDemoCleanup() {
         // Limpar dados antigos
         localStorage.removeItem("pwa-voice-v2-storage");
         localStorage.removeItem("pwa-history-storage");
-        localStorage.removeItem("pwacity-verified-phone");
-        localStorage.removeItem("pwahealth-verified-phone");
 
         // Marcar que já limpou nesta sessão
         sessionStorage.setItem("pwa-demo-cleaned", "true");

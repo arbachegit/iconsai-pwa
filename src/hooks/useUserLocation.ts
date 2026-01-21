@@ -85,7 +85,7 @@ export function useUserLocation(): UseUserLocationReturn {
         `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&accept-language=pt-BR`,
         {
           headers: {
-            "User-Agent": "PWAHealth/1.0",
+            "User-Agent": "VoxiaApp/1.0",
           },
         }
       );

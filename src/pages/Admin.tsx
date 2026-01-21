@@ -28,21 +28,15 @@ import {
 import { DashboardTab } from "@/components/admin/DashboardTab";
 
 // Lazy load all other tabs for better initial bundle size
-// ChatConfigTab removed - config now in AgentManagementTab
-const TooltipsTab = lazy(() => import("@/components/admin/TooltipsTab").then(m => ({ default: m.TooltipsTab })));
 const GmailTab = lazy(() => import("@/components/admin/GmailTab").then(m => ({ default: m.GmailTab })));
 const AnalyticsTab = lazy(() => import("@/components/admin/AnalyticsTab").then(m => ({ default: m.AnalyticsTab })));
 const ConversationsTab = lazy(() => import("@/components/admin/ConversationsTab").then(m => ({ default: m.ConversationsTab })));
-const ImageCacheTab = lazy(() => import("@/components/admin/ImageCacheTab").then(m => ({ default: m.ImageCacheTab })));
-const VideosTab = lazy(() => import("@/components/admin/VideosTab").then(m => ({ default: m.VideosTab })));
 const DocumentsTab = lazy(() => import("@/components/admin/DocumentsTab").then(m => ({ default: m.DocumentsTab })));
 const RagMetricsTab = lazy(() => import("@/components/admin/RagMetricsTab").then(m => ({ default: m.RagMetricsTab })));
 const VersionControlTab = lazy(() => import("@/components/admin/VersionControlTab").then(m => ({ default: m.VersionControlTab })));
 const DocumentAnalysisTab = lazy(() => import("@/components/admin/DocumentAnalysisTab").then(m => ({ default: m.DocumentAnalysisTab })));
 const DocumentRoutingLogsTab = lazy(() => import("@/components/admin/DocumentRoutingLogsTab").then(m => ({ default: m.DocumentRoutingLogsTab })));
 const RagDiagnosticsTab = lazy(() => import("@/components/admin/RagDiagnosticsTab").then(m => ({ default: m.RagDiagnosticsTab })));
-const PodcastManagementTab = lazy(() => import("@/components/admin/PodcastManagementTab").then(m => ({ default: m.PodcastManagementTab })));
-const ContentManagementTab = lazy(() => import("@/components/admin/ContentManagementTab").then(m => ({ default: m.ContentManagementTab })));
 const ActivityLogsTab = lazy(() => import("@/components/admin/ActivityLogsTab").then(m => ({ default: m.ActivityLogsTab })));
 const UserUsageLogsTab = lazy(() => import("@/components/admin/UserUsageLogsTab").then(m => ({ default: m.UserUsageLogsTab })));
 const TagModificationLogsTab = lazy(() => import("@/components/admin/TagModificationLogsTab").then(m => ({ default: m.TagModificationLogsTab })));
@@ -66,18 +60,8 @@ const SecurityAuditLogsTab = lazy(() => import("@/components/admin/SecurityAudit
 const NotificationSettingsTab = lazy(() => import("@/components/admin/NotificationSettingsTab"));
 const NotificationLogsTab = lazy(() => import("@/components/admin/NotificationLogsTab"));
 const UserRegistryTab = lazy(() => import("@/components/admin/UserRegistryTab"));
-const EconomicIndicatorsTab = lazy(() => import("@/components/admin/EconomicIndicatorsTab"));
-const MarketNewsTab = lazy(() => import("@/components/admin/MarketNewsTab"));
-const ApiManagementTab = lazy(() => import("@/components/admin/ApiManagementTab"));
-const JsonDataObservabilityTab = lazy(() => import("@/components/admin/JsonDataObservabilityTab").then(m => ({ default: m.JsonDataObservabilityTab })));
-const DataAnalysisTab = lazy(() => import("@/components/admin/DataAnalysisTab"));
-const ChartDatabaseTab = lazy(() => import("@/components/admin/ChartDatabaseTab"));
-const JsonTestTab = lazy(() => import("@/components/admin/JsonTestTab"));
-const RegionalIndicatorsTab = lazy(() => import("@/components/admin/RegionalIndicatorsTab"));
-const TableDatabaseTab = lazy(() => import("@/components/admin/TableDatabaseTab"));
 const ApiAuditLogsTab = lazy(() => import("@/components/admin/ApiAuditLogsTab"));
 const AgentManagementTab = lazy(() => import("@/components/admin/AgentManagementTab"));
-const PMCConversionTab = lazy(() => import("@/components/admin/PMCConversionTab"));
 const PWATab = lazy(() => import("@/components/admin/PWATab"));
 const AppConfigTab = lazy(() => import("@/components/admin/AppConfigTab"));
 const DocumentReclassificationTab = lazy(() => import("@/components/admin/DocumentReclassificationTab").then(m => ({ default: m.DocumentReclassificationTab })));
@@ -89,7 +73,6 @@ const ContentProfilesTab = lazy(() => import("@/components/admin/ContentProfiles
 const LexiconPhoneticsTab = lazy(() => import("@/components/admin/LexiconPhoneticsTab"));
 const OntologyConceptsTab = lazy(() => import("@/components/admin/OntologyConceptsTab"));
 const SchemaMonitorTab = lazy(() => import("@/components/admin/SchemaMonitorTab"));
-const CRMTab = lazy(() => import("@/components/admin/CRMTab").then(m => ({ default: m.CRMTab })));
 const WhatsAppTierDashboard = lazy(() => import("@/components/admin/WhatsAppTierDashboard"));
 const FallbackConfigTab = lazy(() => import("@/components/admin/FallbackConfigTab"));
 const PWAConversationsTab = lazy(() => import("@/components/admin/PWAConversationsTab"));
@@ -99,17 +82,14 @@ const TabLoadingFallback = () => (
   </div>
 );
 
-type TabType = "dashboard" | "tooltips" | "gmail" | "analytics" | "conversations" | "images" | "videos" | "documents" | "rag-metrics" | "version-control" | "tags" | "document-analysis" | "document-routing-logs" | "rag-diagnostics" | "content-management" | "podcasts" | "activity-logs" | "user-usage-logs" | "tag-modification-logs" | "deterministic-analysis" | "architecture" | "regional-config" | "suggestion-audit" | "contact-messages" | "documentation-sync" | "ml-dashboard" | "maieutic-training" | "taxonomy-ml-audit" | "taxonomy-manager" | "ml-review" | "security-integrity" | "security-dashboard" | "security-whitelist" | "security-shield-config" | "security-audit-logs" | "notification-settings" | "notification-logs" | "user-registry" | "economic-indicators" | "market-news" | "api-management" | "json-data" | "data-analysis" | "chart-database" | "json-test" | "regional-indicators" | "table-database" | "api-audit-logs" | "agent-management" | "pmc-conversion" | "dashboard-external" | "data-registry" | "pwa" | "app-config" | "doc-reclassification" | "taxonomy-suggestions" | "document-onboarding" | "taxonomy-analytics" | "maieutic-effectiveness" | "lexicon-phonetics" | "ontology-concepts" | "content-profiles" | "schema-monitor" | "crm" | "whatsapp-tier" | "fallback-config" | "pwa-conversations";
+type TabType = "dashboard" | "gmail" | "analytics" | "conversations" | "documents" | "rag-metrics" | "version-control" | "tags" | "document-analysis" | "document-routing-logs" | "rag-diagnostics" | "activity-logs" | "user-usage-logs" | "tag-modification-logs" | "deterministic-analysis" | "architecture" | "regional-config" | "suggestion-audit" | "contact-messages" | "documentation-sync" | "ml-dashboard" | "maieutic-training" | "taxonomy-ml-audit" | "taxonomy-manager" | "ml-review" | "security-integrity" | "security-dashboard" | "security-whitelist" | "security-shield-config" | "security-audit-logs" | "notification-settings" | "notification-logs" | "user-registry" | "api-audit-logs" | "agent-management" | "pwa" | "app-config" | "doc-reclassification" | "taxonomy-suggestions" | "document-onboarding" | "taxonomy-analytics" | "maieutic-effectiveness" | "lexicon-phonetics" | "ontology-concepts" | "content-profiles" | "schema-monitor" | "whatsapp-tier" | "fallback-config" | "pwa-conversations";
 
 // Mapping de tab para nome legível
 const TAB_LABELS: Record<TabType, string> = {
   "dashboard": "Dashboard",
-  "tooltips": "Tooltips",
   "gmail": "Gmail",
   "analytics": "Analytics",
   "conversations": "Conversas",
-  "images": "Cache de Imagens",
-  "videos": "Inserir Vídeos (Vimeo)",
   "documents": "RAG Documentos",
   "rag-metrics": "Métricas RAG",
   "version-control": "Versionamento",
@@ -117,8 +97,6 @@ const TAB_LABELS: Record<TabType, string> = {
   "document-analysis": "Análise Documentos",
   "document-routing-logs": "Logs de Roteamento",
   "rag-diagnostics": "Diagnóstico RAG",
-  "content-management": "Seções Landing Page",
-  "podcasts": "Podcasts",
   "activity-logs": "Log de Atividades",
   "user-usage-logs": "Log de Uso (Usuários)",
   "tag-modification-logs": "Logs de Mescla Tags",
@@ -141,20 +119,8 @@ const TAB_LABELS: Record<TabType, string> = {
   "notification-settings": "Notificação",
   "notification-logs": "Logs de Notificações",
   "user-registry": "Cadastro de Usuários",
-  "economic-indicators": "Painel de Indicadores",
-  "market-news": "Balcão de Notícias",
-  "api-management": "Gestão de APIs",
-  "json-data": "JSON Dados",
-  "data-analysis": "Data Analysis",
-  "chart-database": "Chart Data Base",
-  "json-test": "Teste de JSON",
-  "regional-indicators": "Indicadores Regionais",
-  "table-database": "Table Data Base",
   "api-audit-logs": "Log de APIs",
   "agent-management": "Gestão de Agentes",
-  "pmc-conversion": "PMC → R$",
-  "dashboard-external": "Dashboard Externo",
-  "data-registry": "Cadastro de Dados",
   "pwa": "PWA Voz",
   "app-config": "Configurações do Sistema",
   "doc-reclassification": "Re-classificar Docs",
@@ -166,7 +132,6 @@ const TAB_LABELS: Record<TabType, string> = {
   "ontology-concepts": "Ontologia Conceitos",
   "content-profiles": "Perfis de Conteúdo",
   "schema-monitor": "Monitor de Schema",
-  "crm": "CRM Leads",
   "whatsapp-tier": "WhatsApp Tier",
   "fallback-config": "Fallback SMS",
   "pwa-conversations": "Conversas PWA",
@@ -236,8 +201,8 @@ const Admin = () => {
           .maybeSingle();
 
         if (!roleData) {
-          // Silently redirect non-superadmin users to /dashboard
-          navigate("/dashboard");
+          // Silently redirect non-superadmin users to /app
+          navigate("/app");
           return;
         }
       } catch (error) {
@@ -270,7 +235,6 @@ const Admin = () => {
 
     const LazyComponent = (() => {
       switch (activeTab) {
-        case "tooltips": return <TooltipsTab />;
         case "conversations": return <ConversationsTab />;
         case "gmail": return <GmailTab />;
         case "analytics": return <AnalyticsTab />;
@@ -281,8 +245,6 @@ const Admin = () => {
         case "document-analysis": return <DocumentAnalysisTab />;
         case "document-routing-logs": return <DocumentRoutingLogsTab />;
         case "rag-diagnostics": return <RagDiagnosticsTab />;
-        case "content-management": return <ContentManagementTab />;
-        case "podcasts": return <PodcastManagementTab />;
         case "activity-logs": return <ActivityLogsTab />;
         case "user-usage-logs": return <UserUsageLogsTab />;
         case "tag-modification-logs": return <TagModificationLogsTab />;
@@ -292,8 +254,6 @@ const Admin = () => {
         case "suggestion-audit": return <SuggestionAuditTab />;
         case "contact-messages": return <ContactMessagesTab />;
         case "documentation-sync": return <DocumentationSyncTab />;
-        case "images": return <ImageCacheTab />;
-        case "videos": return <VideosTab />;
         case "ml-dashboard": return <MLDashboardTab />;
         case "maieutic-training": return <MaieuticTrainingTab />;
         case "taxonomy-ml-audit": return <TaxonomyMLAuditTab />;
@@ -307,18 +267,8 @@ const Admin = () => {
         case "notification-settings": return <NotificationSettingsTab />;
         case "notification-logs": return <NotificationLogsTab />;
         case "user-registry": return <UserRegistryTab />;
-        case "economic-indicators": return <EconomicIndicatorsTab />;
-        case "market-news": return <MarketNewsTab />;
-        case "api-management": return <ApiManagementTab />;
-        case "json-data": return <JsonDataObservabilityTab />;
-        case "data-analysis": return <DataAnalysisTab />;
-        case "chart-database": return <ChartDatabaseTab />;
-        case "json-test": return <JsonTestTab />;
-        case "regional-indicators": return <RegionalIndicatorsTab />;
-        case "table-database": return <TableDatabaseTab />;
         case "api-audit-logs": return <ApiAuditLogsTab />;
         case "agent-management": return <AgentManagementTab />;
-        case "pmc-conversion": return <PMCConversionTab />;
         case "pwa": return <PWATab />;
         case "app-config": return <AppConfigTab />;
         case "doc-reclassification": return <DocumentReclassificationTab />;
@@ -330,7 +280,6 @@ const Admin = () => {
         case "lexicon-phonetics": return <LexiconPhoneticsTab />;
         case "ontology-concepts": return <OntologyConceptsTab />;
         case "schema-monitor": return <SchemaMonitorTab />;
-        case "crm": return <CRMTab />;
         case "whatsapp-tier": return <WhatsAppTierDashboard />;
         case "fallback-config": return <FallbackConfigTab />;
         case "pwa-conversations": return <PWAConversationsTab />;

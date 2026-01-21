@@ -1,281 +1,320 @@
-// Landing page with lazy-loaded components
-import React, { Suspense, lazy } from "react";
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import Section from "@/components/Section";
-import { Link } from "react-router-dom";
-import { Brain, Mail, Sparkles } from "lucide-react";
-import knowriskLogo from "@/assets/knowrisk-logo.png";
-import { useTranslation } from "react-i18next";
-import { useYouTubeAutoPreload } from "@/hooks/useYouTubeAutoPreload";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { Lock, KeyRound, Loader2, Eye, EyeOff, Check, X, AlertCircle, ArrowLeft } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import voxiaLogo from "@/assets/voxia-logo.png";
 
-// Lazy load below-the-fold components
-const ChatStudy = lazy(() => import("@/components/ChatStudy"));
-const MediaCarousel = lazy(() => import("@/components/MediaCarousel").then(m => ({ default: m.MediaCarousel })));
-const DigitalExclusionSection = lazy(() => import("@/components/DigitalExclusionSection").then(m => ({ default: m.DigitalExclusionSection })));
-const TuringLegacy = lazy(() => import("@/components/TuringLegacy"));
-const FloatingChatButton = lazy(() => import("@/components/FloatingChatButton").then(m => ({ default: m.FloatingChatButton })));
-const ScrollToTopButton = lazy(() => import("@/components/ScrollToTopButton").then(m => ({ default: m.ScrollToTopButton })));
-const ContactModal = lazy(() => import("@/components/ContactModal").then(m => ({ default: m.ContactModal })));
-
-// Simple loading placeholder
-const SectionLoader = () => (
-  <div className="flex items-center justify-center py-12">
-    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-  </div>
-);
+const validateEmailFormat = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 
 const Index = () => {
-  const { t, i18n } = useTranslation();
-  
-  // Auto-preload YouTube videos in background when cache expires
-  useYouTubeAutoPreload();
-  
-  return <div className="min-h-screen bg-background">
-      <Header />
-      <div key={i18n.language} className="language-transition">
-        <HeroSection />
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
+  const [isResetting, setIsResetting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState<boolean | null>(null);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
-      {/* Section 1: Software */}
-      <Section 
-        id="software" 
-        title={t('sections.software.title')}
-        subtitle={t('sections.software.subtitle')}
-        quote={t('sections.software.quote')}
-        quoteAuthor={t('sections.software.quoteAuthor')}
-      >
-        <p className="text-lg leading-relaxed">
-          {t('sections.software.content1')}
-        </p>
-        <p className="text-lg leading-relaxed mt-4">
-          {t('sections.software.content2')}
-        </p>
-      </Section>
+  // Validate email format in real-time
+  useEffect(() => {
+    if (resetEmail.length === 0) {
+      setIsEmailValid(null);
+      setEmailError(null);
+      return;
+    }
 
-      {/* Section 2: Internet */}
-      <Section 
-        id="internet" 
-        title={t('sections.internet.title')}
-        subtitle={t('sections.internet.subtitle')}
-        reverse
-        quote={t('sections.internet.quote')}
-        quoteAuthor={t('sections.internet.quoteAuthor')}
-      >
-        <p className="text-lg leading-relaxed">
-          {t('sections.internet.content1')}
-        </p>
-        <p className="text-lg leading-relaxed mt-4">
-          {t('sections.internet.content2')}
-        </p>
-      </Section>
+    const isValid = validateEmailFormat(resetEmail);
+    setIsEmailValid(isValid);
+    setEmailError(isValid ? null : "Formato de email inválido");
+  }, [resetEmail]);
 
-      {/* Section 3: Tecnologias Sem Propósito */}
-      <Section 
-        id="tech-sem-proposito" 
-        title={t('sections.techNoPropose.title')}
-        subtitle={t('sections.techNoPropose.subtitle')}
-        quote={t('sections.techNoPropose.quote')}
-        quoteAuthor={t('sections.techNoPropose.quoteAuthor')}
-      >
-        <p className="text-lg leading-relaxed">
-          {t('sections.techNoPropose.content1')}
-        </p>
-        <p className="text-lg leading-relaxed mt-4">
-          {t('sections.techNoPropose.content2')}
-        </p>
-      </Section>
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
 
-      {/* Section 4: 1969 Kubrick */}
-      <Section 
-        id="kubrick" 
-        title={t('sections.kubrick.title')}
-        subtitle={t('sections.kubrick.subtitle')}
-        reverse
-        quote={t('sections.kubrick.quote')}
-        quoteAuthor={t('sections.kubrick.quoteAuthor')}
-      >
-        <p className="text-lg leading-relaxed">
-          {t('sections.kubrick.content1')}
-        </p>
-        <p className="text-lg leading-relaxed mt-4">
-          {t('sections.kubrick.content2')}
-        </p>
-      </Section>
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-      {/* Section 5: Watson */}
-      <Section 
-        id="watson" 
-        title={t('sections.watson.title')}
-        subtitle={t('sections.watson.subtitle')}
-        quote={t('sections.watson.quote')}
-        quoteAuthor={t('sections.watson.quoteAuthor')}
-      >
-        <p className="text-lg leading-relaxed">
-          {t('sections.watson.content1')}
-        </p>
-        <p className="text-lg leading-relaxed mt-4">
-          {t('sections.watson.content2')}
-        </p>
-      </Section>
+      if (error) throw error;
 
-      {/* Section 6: IA Nova Era */}
-      <Section 
-        id="ia-nova-era" 
-        title={t('sections.newEra.title')}
-        subtitle={t('sections.newEra.subtitle')}
-        reverse
-        quote={t('sections.newEra.quote')}
-        quoteAuthor={t('sections.newEra.quoteAuthor')}
-      >
-        <p className="text-lg leading-relaxed">
-          {t('sections.newEra.content1')}
-        </p>
-        <p className="text-lg leading-relaxed mt-4">
-          {t('sections.newEra.content2')}
-        </p>
-      </Section>
+      // Check user role for redirect
+      const { data: superadminData } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", data.user.id)
+        .eq("role", "superadmin")
+        .maybeSingle();
 
-      {/* Section 7: KnowYOU - Interactive Chat - Custom Full Width Layout */}
-      <section id="knowyou" className="py-8 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center space-y-6">
-            {/* Title */}
-            <h2 className="text-4xl md:text-5xl font-bold text-gradient">
-              {t('sections.knowyou.title')}
-            </h2>
-            
-            {/* Subtitle */}
-            <p className="text-xl text-muted-foreground">
-              {t('sections.knowyou.subtitle')}
-            </p>
-            
-            {/* Description Text */}
-            <div className="text-center max-w-3xl mx-auto space-y-4">
-              <p className="text-lg leading-relaxed">
-                {t('sections.knowyou.content1')}
-              </p>
-              <p className="text-lg leading-relaxed">
-                {t('sections.knowyou.content2')}
-              </p>
-            </div>
-            
-            {/* Chat Component - Full Width */}
-            <div className="mt-8 w-full">
-              <Suspense fallback={<SectionLoader />}>
-                <ChatStudy />
-              </Suspense>
-            </div>
-            
-            {/* Media Carousel - Full Width */}
-            <div className="mt-12 w-full">
-              <Suspense fallback={<SectionLoader />}>
-                <MediaCarousel />
-              </Suspense>
-            </div>
+      if (superadminData) {
+        toast({
+          title: "Login realizado",
+          description: "Bem-vindo, Super Admin!",
+        });
+        navigate("/hub");
+        return;
+      }
+
+      const { data: adminData } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", data.user.id)
+        .eq("role", "admin")
+        .maybeSingle();
+
+      if (adminData) {
+        toast({
+          title: "Login realizado",
+          description: "Bem-vindo ao Dashboard.",
+        });
+        navigate("/dashboard");
+        return;
+      }
+
+      // Default user - redirect to app
+      toast({
+        title: "Login realizado",
+        description: "Bem-vindo ao IconsAI.",
+      });
+      navigate("/app");
+    } catch (error: any) {
+      toast({
+        title: "Erro ao fazer login",
+        description: error.message,
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleRequestCode = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!isEmailValid) {
+      toast({
+        title: "Email inválido",
+        description: "Por favor, insira um email válido.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsResetting(true);
+
+    try {
+      const response = await supabase.functions.invoke('send-recovery-code', {
+        body: { email: resetEmail }
+      });
+
+      if (response.error) {
+        throw new Error(response.error.message || 'Erro ao enviar código');
+      }
+
+      const data = response.data;
+
+      if (data.error === 'email_not_found') {
+        setEmailError("Email não registrado no sistema");
+        toast({
+          title: "Email não encontrado",
+          description: "Este email não está registrado no sistema.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (data.error) {
+        toast({
+          title: "Erro",
+          description: data.error,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Código enviado",
+        description: "Verifique seu email para o código de recuperação",
+      });
+
+      navigate(`/admin/reset-password?email=${encodeURIComponent(resetEmail)}`);
+
+    } catch (err: any) {
+      console.error("Error requesting recovery code:", err);
+      toast({
+        title: "Erro",
+        description: err.message || "Erro ao solicitar código de recuperação",
+        variant: "destructive",
+      });
+    } finally {
+      setIsResetting(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-md p-8 bg-card/50 backdrop-blur-sm border-primary/20">
+        <div className="flex flex-col items-center space-y-6">
+          {/* Logo */}
+          <div className="flex flex-col items-center space-y-2">
+            <img
+              src={voxiaLogo}
+              alt="Voxia AI"
+              className="h-20 w-auto object-contain"
+            />
+            <h1 className="text-2xl font-bold text-gradient">Voxia AI</h1>
           </div>
-        </div>
-      </section>
 
-      {/* Digital Exclusion Section */}
-      <Suspense fallback={<SectionLoader />}>
-        <DigitalExclusionSection />
-      </Suspense>
-
-      {/* Section 8: Bom Prompt */}
-      <Section
-        id="bom-prompt" 
-        title={t('sections.goodPrompt.title')}
-        subtitle={t('sections.goodPrompt.subtitle')}
-        reverse
-        quote={t('sections.goodPrompt.quote')}
-        quoteAuthor={t('sections.goodPrompt.quoteAuthor')}
-      >
-        <div className="relative">
-          <Link to="/admin/login" className="absolute -top-16 right-0 text-muted-foreground/20 hover:text-muted-foreground/40 transition-opacity" aria-label="Admin Login">
-            <Brain className="w-5 h-5" />
-          </Link>
-          
-          <p className="text-lg leading-relaxed">
-            {t('sections.goodPrompt.content1')}
-          </p>
-          <p className="text-lg leading-relaxed mt-4">
-            {t('sections.goodPrompt.content2')}
-          </p>
-          <div className="mt-6 space-y-3">
-            <div className="p-4 bg-card rounded-lg border border-primary/10">
-              <p className="text-sm font-medium text-primary">{t('sections.goodPrompt.beSpecific')}</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                {t('sections.goodPrompt.beSpecificDesc')}
-              </p>
-            </div>
-            <div className="p-4 bg-card rounded-lg border border-primary/10">
-              <p className="text-sm font-medium text-secondary">{t('sections.goodPrompt.giveContext')}</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                {t('sections.goodPrompt.giveContextDesc')}
-              </p>
-            </div>
-            <div className="p-4 bg-card rounded-lg border border-primary/10">
-              <p className="text-sm font-medium text-accent">{t('sections.goodPrompt.iterateRefine')}</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                {t('sections.goodPrompt.iterateRefineDesc')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Turing Legacy Section */}
-      <Suspense fallback={<SectionLoader />}>
-        <TuringLegacy />
-      </Suspense>
-
-      {/* Footer */}
-      <footer className="py-12 border-t border-border/50">
-        <div className="container mx-auto px-4">
-          <div className="relative">
-            <div className="text-center space-y-4">
-              <div className="flex items-center justify-center gap-3">
-                <img src={knowriskLogo} alt="KnowRisk" className="h-8 w-auto" />
-                <span className="text-lg font-bold text-gradient">KnowYOU</span>
-                <div className="inline-flex items-center gap-2 bg-card/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20">
-                  <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">Power by Fernando Arbache</span>
-                </div>
+          {!showForgotPassword ? (
+            <>
+              <div className="text-center">
+                <p className="text-muted-foreground">
+                  Entre com suas credenciais
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                {t('footer.tagline')}
-              </p>
-              <Suspense fallback={null}>
-                <ContactModal>
-                  <button className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors mx-auto mt-2">
-                    <Mail className="h-4 w-4" />
-                    {t('contact.button')}
-                  </button>
-                </ContactModal>
-              </Suspense>
-              <p className="text-xs text-muted-foreground">
-                {t('footer.copyright')}
-              </p>
-            </div>
-            
-            {/* Discreet Admin Link */}
-            <Link to="/admin/login" className="absolute right-0 top-0 text-muted-foreground/20 hover:text-muted-foreground/40 transition-opacity" aria-label="Admin Login">
-              <Brain className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </footer>
-      </div>
 
-      {/* Floating Chat Button */}
-      <Suspense fallback={null}>
-        <FloatingChatButton />
-      </Suspense>
-      
-      {/* Scroll to Top Button */}
-      <Suspense fallback={null}>
-        <ScrollToTopButton />
-      </Suspense>
-    </div>;
+              <form onSubmit={handleLogin} className="w-full space-y-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-muted-foreground">
+                    Email
+                  </label>
+                  <Input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="seu-email@exemplo.com"
+                    className="bg-background/50"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-muted-foreground">
+                    Senha
+                  </label>
+                  <div className="relative">
+                    <Input
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Digite sua senha"
+                      className="bg-background/50 pr-10"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
+                  </div>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-primary"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Entrando..." : "Entrar"}
+                </Button>
+              </form>
+
+              <button
+                type="button"
+                onClick={() => setShowForgotPassword(true)}
+                className="text-sm text-primary hover:text-primary/80 hover:underline transition-colors"
+              >
+                Esqueceu sua senha?
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="text-center">
+                <h2 className="text-xl font-bold text-foreground">Recuperar Senha</h2>
+                <p className="text-muted-foreground mt-2">
+                  Digite seu email para receber um código de recuperação
+                </p>
+              </div>
+
+              <form onSubmit={handleRequestCode} className="w-full space-y-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-muted-foreground">
+                    Email
+                  </label>
+                  <div className="relative">
+                    <Input
+                      type="email"
+                      value={resetEmail}
+                      onChange={(e) => setResetEmail(e.target.value)}
+                      placeholder="seu-email@exemplo.com"
+                      className={`bg-background/50 pr-10 ${
+                        isEmailValid === false ? 'border-red-500 focus:border-red-500' :
+                        isEmailValid === true ? 'border-green-500 focus:border-green-500' : ''
+                      }`}
+                      required
+                    />
+                    {resetEmail.length > 0 && (
+                      <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                        {isEmailValid === true && <Check className="h-4 w-4 text-green-500" />}
+                        {isEmailValid === false && <X className="h-4 w-4 text-red-500" />}
+                      </div>
+                    )}
+                  </div>
+                  {emailError && (
+                    <div className="flex items-center gap-1 text-xs text-red-500">
+                      <AlertCircle className="h-3 w-3" />
+                      {emailError}
+                    </div>
+                  )}
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-primary"
+                  disabled={isResetting || !isEmailValid}
+                >
+                  {isResetting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Enviando código...
+                    </>
+                  ) : (
+                    "Enviar Código"
+                  )}
+                </Button>
+              </form>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setShowForgotPassword(false);
+                  setResetEmail("");
+                }}
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Voltar ao login
+              </button>
+            </>
+          )}
+        </div>
+      </Card>
+    </div>
+  );
 };
+
 export default Index;

@@ -29,15 +29,12 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import knowyouAdminLogo from "@/assets/knowyou-admin-logo.png";
 import {
-  LayoutDashboard,
   MessageSquare,
   FileText,
-  Mail,
   BarChart3,
   LogOut,
   MessagesSquare,
   Image,
-  Video,
   BookOpen,
   Database,
   GitBranch,
@@ -63,19 +60,12 @@ import {
   Sparkles,
   Menu,
   X,
-  Monitor,
   RefreshCw,
   Bell,
   ScrollText,
-  TrendingUp,
-  Newspaper,
-  Webhook,
-  FileJson,
-  MapPin,
   Bot,
   Smartphone,
   Home,
-  DollarSign,
   TreeDeciduous,
   Volume2,
   Network,
@@ -83,6 +73,9 @@ import {
   Star,
   GripVertical,
   ArrowRightLeft,
+  LayoutDashboard,
+  Webhook,
+  TrendingUp,
 } from "lucide-react";
 import { NotificationBell } from './NotificationBell';
 
@@ -470,18 +463,6 @@ export const AdminSidebar = ({ activeTab, onTabChange, isCollapsed, onToggleColl
       ]
     },
     {
-      id: "media",
-      label: "Mídia & Conteúdo",
-      icon: Film,
-      items: [
-        { id: "content-management" as TabType, label: "Seções Landing Page", icon: FileText },
-        { id: "podcasts" as TabType, label: "Podcasts", icon: Music },
-        { id: "tooltips" as TabType, label: "Tooltips", icon: MessageCircle },
-        { id: "images" as TabType, label: "Cache de Imagens", icon: Image },
-        { id: "videos" as TabType, label: "Inserir Vídeos (Vimeo)", icon: Video },
-      ]
-    },
-    {
       id: "security",
       label: "Segurança",
       icon: Shield,
@@ -491,14 +472,6 @@ export const AdminSidebar = ({ activeTab, onTabChange, isCollapsed, onToggleColl
         { id: "security-whitelist" as TabType, label: "Whitelist de IPs", icon: ShieldCheck },
         { id: "security-shield-config" as TabType, label: "Config. Security Shield", icon: Shield },
         { id: "security-audit-logs" as TabType, label: "Audit Logs", icon: ScrollText },
-      ]
-    },
-    {
-      id: "sales",
-      label: "Vendas & CRM",
-      icon: Users,
-      items: [
-        { id: "crm" as TabType, label: "CRM DataFlow", icon: Users },
       ]
     },
     {
@@ -526,31 +499,6 @@ export const AdminSidebar = ({ activeTab, onTabChange, isCollapsed, onToggleColl
         { id: "version-control" as TabType, label: "Versionamento", icon: GitBranch },
         { id: "documentation-sync" as TabType, label: "Sincronizar Docs", icon: RefreshCw },
         { id: "schema-monitor" as TabType, label: "Monitor de Schema", icon: Database },
-      ]
-    },
-    {
-      id: "indicators",
-      label: "INDICADORES ECONÔMICOS",
-      icon: TrendingUp,
-      items: [
-        { id: "economic-indicators" as TabType, label: "Painel de Indicadores", icon: BarChart3 },
-        { id: "regional-indicators" as TabType, label: "Indicadores Regionais", icon: MapPin },
-        { id: "pmc-conversion" as TabType, label: "PMC → R$", icon: DollarSign },
-        { id: "market-news" as TabType, label: "Balcão de Notícias", icon: Newspaper },
-        { id: "json-test" as TabType, label: "Teste de JSON", icon: TestTube },
-        { id: "api-management" as TabType, label: "Gestão de APIs", icon: Webhook },
-        { id: "json-data" as TabType, label: "JSON Dados", icon: FileJson },
-      ]
-    },
-    {
-      id: "analytics-hub",
-      label: "ANALYTICS",
-      icon: BarChart3,
-      items: [
-        { id: "dashboard-external" as TabType, label: "Dashboard", icon: LayoutDashboard },
-        { id: "data-analysis" as TabType, label: "Data Analysis", icon: TrendingUp },
-        { id: "chart-database" as TabType, label: "Chart DataSet", icon: Database },
-        { id: "table-database" as TabType, label: "Table DataSet", icon: Database },
       ]
     },
     {
@@ -906,20 +854,6 @@ export const AdminSidebar = ({ activeTab, onTabChange, isCollapsed, onToggleColl
                   <Button 
                     variant="ghost" 
                     size="icon" 
-                    className="group h-10 w-10 rounded-lg hover:bg-muted transition-all duration-200"
-                    onClick={() => navigate("/dashboard")}
-                  >
-                    <LayoutDashboard className="w-4 h-4 group-hover:text-foreground" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="right">Dashboard</TooltipContent>
-              </Tooltip>
-
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
                     className="group h-10 w-10 rounded-lg text-primary hover:bg-muted transition-all duration-200"
                     onClick={() => navigate("/")}
                   >
@@ -976,23 +910,9 @@ export const AdminSidebar = ({ activeTab, onTabChange, isCollapsed, onToggleColl
 
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="group h-9 w-9 rounded-lg hover:bg-muted transition-all duration-200"
-                    onClick={() => navigate("/dashboard")}
-                  >
-                    <LayoutDashboard className="w-4 h-4 group-hover:text-foreground" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="top">Dashboard</TooltipContent>
-              </Tooltip>
-
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     className="group h-9 w-9 rounded-lg text-primary hover:bg-muted transition-all duration-200"
                     onClick={() => navigate("/")}
                   >
@@ -1037,17 +957,8 @@ export const AdminSidebar = ({ activeTab, onTabChange, isCollapsed, onToggleColl
                 <span className="whitespace-nowrap">App</span>
               </Button>
 
-              <Button 
-                variant="ghost" 
-                className="group w-full justify-start gap-3 h-9 rounded-lg hover:bg-muted transition-all duration-200"
-                onClick={() => navigate("/dashboard")}
-              >
-                <LayoutDashboard className="w-4 h-4 shrink-0 group-hover:text-foreground" />
-                <span className="whitespace-nowrap">Dashboard</span>
-              </Button>
-
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 className="group w-full justify-start gap-3 h-9 rounded-lg text-primary hover:bg-muted transition-all duration-200"
                 onClick={() => navigate("/")}
               >

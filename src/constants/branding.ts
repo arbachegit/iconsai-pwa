@@ -12,8 +12,8 @@ export const BRAND = {
   companyFullName: "Arbache AI Tecnologia",
   
   // Nome do aplicativo
-  appName: "IconsAI",
-  appFullName: "IconsAI by Arbache AI",
+  appName: "Voxia AI",
+  appFullName: "Voxia AI by Arbache AI",
   
   // Descrições
   appDescription: "Assistente de voz inteligente desenvolvido pela Arbache AI",

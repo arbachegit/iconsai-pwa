@@ -1,6 +1,6 @@
 {
-  "name": "IconsAI Voice Assistant",
-  "short_name": "IconsAI",
+  "name": "Voxia AI",
+  "short_name": "Voxia AI",
   "description": "Seu assistente de voz inteligente",
   "start_url": "/pwa",
   "display": "standalone",
