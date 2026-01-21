@@ -1,0 +1,894 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  /* Prevent horizontal overflow and layout shifts */
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    background-color: hsl(225 71% 8%);
+  }
+
+  /* Force consistent background in PWA standalone mode */
+  @media (display-mode: standalone) {
+    html,
+    body {
+      background-color: #0A0E1A !important;
+    }
+  }
+
+  :root {
+    --background: 225 71% 8%;
+    --foreground: 220 17% 93%;
+
+    --card: 225 54% 12%;
+    --card-foreground: 220 17% 93%;
+
+    --popover: 225 54% 12%;
+    --popover-foreground: 220 17% 93%;
+
+    --primary: 191 100% 50%;
+    --primary-foreground: 225 71% 8%;
+
+    --secondary: 270 64% 58%;
+    --secondary-foreground: 220 17% 93%;
+
+    --muted: 225 40% 18%;
+    --muted-foreground: 220 17% 70%;
+
+    --accent: 150 100% 50%;
+    --accent-foreground: 225 71% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 17% 93%;
+
+    --border: 225 40% 20%;
+    --input: 225 40% 20%;
+    --ring: 191 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(191, 100%, 50%), hsl(270, 64%, 58%));
+    --gradient-subtle: linear-gradient(180deg, hsl(225, 71%, 8%), hsl(225, 54%, 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(270, 64%, 58%), hsl(191, 100%, 50%));
+    
+    --shadow-glow: 0 0 40px hsl(191 100% 50% / 0.3);
+    --shadow-glow-secondary: 0 0 30px hsl(270 64% 58% / 0.3);
+    --shadow-elegant: 0 10px 40px -10px hsl(191 100% 50% / 0.2);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Chat containers design system */
+    --chat-container-bg: 225 45% 14%;
+    --chat-container-border: 225 55% 42%;
+    --chat-saved-bg: 225 40% 20%;
+    --chat-saved-border: 225 30% 32%;
+    --chat-message-user-bg: 191 100% 45%;
+    --chat-message-ai-bg: 225 35% 18%;
+    
+    /* Cyan design system for knowyou cards */
+    --cyan-hover-fill: 191 100% 50% / 0.08;
+    --cyan-active-fill: 191 100% 50% / 0.15;
+    --cyan-expanded-fill: 191 100% 35%;
+    --cyan-expanded-text: 0 0% 100%;
+    --shadow-cyan-sm: 0 2px 8px hsl(191 100% 50% / 0.1);
+    --shadow-cyan-md: 0 4px 16px hsl(191 100% 50% / 0.15);
+    --shadow-cyan-lg: 0 8px 32px hsl(191 100% 50% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+
+  .bg-gradient-subtle {
+    background-image: var(--gradient-subtle);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-effect-secondary {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .language-transition {
+    animation: languageFadeIn 0.4s ease-in-out;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes slideLeft {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .suggestions-slider {
+    animation: slideLeft 0.5s ease-out;
+  }
+
+  @keyframes languageFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   KNOWYOU AI - DESIGN SYSTEM
+   Cores Cyan, Efeitos 3D, UI Sóbria e Elegante
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Cards - Contorno Cyan com Efeito 3D no Hover */
+.knowyou-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--primary) / 0.3);
+  border-radius: 0.75rem;
+  transition: 
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.knowyou-card:hover {
+  background: hsl(var(--cyan-hover-fill));
+  border-color: hsl(var(--primary));
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    var(--shadow-cyan-md),
+    0 0 20px hsl(191 100% 50% / 0.1);
+}
+
+.knowyou-card:active {
+  transform: translateY(-2px) scale(1.005);
+  background: hsl(var(--cyan-active-fill));
+}
+
+/* Badges - Contorno Cyan com Efeito Hover */
+.knowyou-badge {
+  background: transparent;
+  border: 1px solid hsl(var(--primary) / 0.3);
+  color: hsl(var(--primary));
+  border-radius: 0.5rem;
+  transition: 
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.knowyou-badge:hover {
+  background: hsl(var(--cyan-hover-fill));
+  border-color: hsl(var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 
+    0 2px 8px hsl(191 100% 50% / 0.2),
+    inset 0 0 12px hsl(191 100% 50% / 0.05);
+}
+
+/* Indicator Cards - Cards de indicadores específicos */
+.knowyou-indicator-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--primary) / 0.3);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.knowyou-indicator-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.knowyou-indicator-card:hover {
+  background: hsl(var(--cyan-hover-fill));
+  border-color: hsl(var(--primary));
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    var(--shadow-cyan-md),
+    0 0 20px hsl(191 100% 50% / 0.1);
+}
+
+.knowyou-indicator-card:hover::before {
+  opacity: 1;
+}
+
+.knowyou-indicator-card .indicator-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  transition: color 0.15s ease;
+}
+
+.knowyou-indicator-card:hover .indicator-value {
+  color: hsl(var(--primary));
+}
+
+/* Header Card - Styled header for data sections */
+.knowyou-header-card {
+  background: hsl(var(--card) / 0.8);
+  border: 1px solid hsl(var(--primary) / 0.3);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+/* Metric Card - Small metric display cards */
+.knowyou-metric-card {
+  background: hsl(var(--muted) / 0.3);
+  border: 1px solid hsl(var(--primary) / 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.knowyou-metric-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  background: hsl(var(--cyan-hover-fill));
+}
+
+/* Animações */
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-cyan {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(191 100% 50% / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px hsl(191 100% 50% / 0);
+  }
+}
+
+.animate-float-in {
+  animation: float-in 0.3s ease-out;
+}
+
+.animate-pulse-cyan {
+  animation: pulse-cyan 2s infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Light theme for Documentation page - print-friendly */
+.docs-light {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 98%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 191 100% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 270 64% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 8% 46%;
+  --accent: 150 100% 40%;
+  --accent-foreground: 0 0% 100%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 191 100% 40%;
+}
+
+/* Print styles for Documentation PDF export */
+@media print {
+  .docs-page {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 98%;
+    --card-foreground: 222 47% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
+    --border: 220 13% 91%;
+  }
+  
+  .docs-page .no-print {
+    display: none !important;
+  }
+}
+
+/* Scroll to bottom button animation */
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Success checkmark animation */
+@keyframes circle-draw {
+  from {
+    stroke-dashoffset: 283;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes check-draw {
+  from {
+    stroke-dashoffset: 60;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* PWA iOS Installation Banner Animation */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Data Flow Diagram Animation */
+@keyframes flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-flow {
+  animation: flow 1s linear infinite;
+}
+
+/* PWA Safe Area */
+.safe-area-inset {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* PWA Custom Scrollbar */
+.pwa-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.pwa-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pwa-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 2px;
+}
+
+.pwa-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.3);
+}
+
+/* Disable text selection in PWA */
+.pwa-no-select {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* PWA Fullscreen - Ocupar tela inteira sem scroll */
+.pwa-fullscreen {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100dvh; /* Dynamic viewport height */
+  overflow: hidden !important;
+  touch-action: none;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
+}
+
+/* Prevenir scroll e pull-to-refresh quando PWA está ativo (legado com :has) */
+html:has(.pwa-fullscreen),
+body:has(.pwa-fullscreen) {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+/* Lock de scroll via JavaScript (mais confiável que :has) */
+html.pwa-scroll-lock,
+body.pwa-scroll-lock {
+  overflow: hidden !important;
+  height: 100% !important;
+  width: 100% !important;
+  position: fixed !important;
+  overscroll-behavior: none !important;
+  touch-action: none;
+  -webkit-overflow-scrolling: auto;
+}
+
+/* Permitir scroll em áreas internas específicas do PWA */
+html.pwa-scroll-lock .pwa-scrollable-area,
+body.pwa-scroll-lock .pwa-scrollable-area,
+.pwa-fullscreen .pwa-scrollable-area {
+  overflow-y: auto !important;
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PWA VOICE V2 - DESIGN SYSTEM
+   Zero Emojis | Zero Scroll | Zero Navigation | Morfismo Obrigatório
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* PWA Voice - Cores Primárias */
+  --pwa-primary: 191 100% 50%;
+  --pwa-primary-glow: 191 100% 50% / 0.5;
+  --pwa-primary-dim: 191 100% 50% / 0.2;
+  
+  /* PWA Voice - Estados */
+  --pwa-listening: 0 84% 60%;
+  --pwa-listening-glow: 0 84% 60% / 0.5;
+  --pwa-success: 142 76% 36%;
+  --pwa-success-glow: 142 76% 36% / 0.5;
+  --pwa-warning: 38 92% 50%;
+  --pwa-processing: 262 83% 58%;
+  
+  /* PWA Voice - Módulos */
+  --pwa-help: 217 91% 60%;
+  --pwa-world: 160 84% 39%;
+  --pwa-health: 347 77% 50%;
+  --pwa-ideas: 38 92% 50%;
+  
+  /* PWA Voice - Superfícies */
+  --pwa-background: 225 71% 5%;
+  --pwa-surface: 225 54% 8% / 0.9;
+  --pwa-surface-elevated: 225 40% 12% / 0.95;
+  --pwa-on-surface: 210 40% 98%;
+  --pwa-on-surface-muted: 215 16% 60%;
+  
+  /* PWA Voice - Estrelas */
+  --pwa-star: 0 0% 100%;
+  --pwa-star-glow: 0 0% 100% / 0.8;
+}
+
+/* PWA Voice - Keyframes para Border Rotation Glow */
+@keyframes pwa-rotate-glow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pwa-rotate-glow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* PWA Voice - Keyframes para Mic Pulse */
+@keyframes pwa-pulse-mic {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--pwa-listening-glow));
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 10px hsl(var(--pwa-listening-glow));
+  }
+}
+
+@keyframes pwa-pulse-mic-fast {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--pwa-listening-glow));
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px 15px hsl(var(--pwa-listening-glow));
+  }
+}
+
+/* PWA Voice - Keyframes para Ondas */
+@keyframes pwa-wave-expand {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pwa-wave-expand-red {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+    border-color: hsl(var(--pwa-listening));
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+    border-color: hsl(var(--pwa-listening) / 0);
+  }
+}
+
+/* PWA Voice - Keyframes para Estrelas */
+@keyframes pwa-star-twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pwa-star-grow {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* PWA Voice - Keyframes para Fade Waves internas */
+@keyframes pwa-fade-wave {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* PWA Voice - Keyframes para Waveform */
+@keyframes pwa-waveform {
+  0%, 100% {
+    height: 8px;
+  }
+  50% {
+    height: var(--wave-height, 24px);
+  }
+}
+
+/* PWA Voice - Keyframes para Bits emanando */
+@keyframes pwa-bit-emanate {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(-50% + var(--bit-x, 0px)), 
+      calc(-50% + var(--bit-y, -60px))
+    ) scale(1);
+    opacity: 0;
+  }
+}
+
+/* PWA Voice - Keyframes para Indicador Status */
+@keyframes pwa-status-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+/* PWA Voice - Keyframes para Morfismo */
+@keyframes pwa-morph-in {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+  100% {
+    clip-path: circle(100% at 50% 50%);
+    opacity: 1;
+  }
+}
+
+@keyframes pwa-morph-out {
+  0% {
+    clip-path: circle(100% at 50% 50%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+}
+
+/* PWA Voice - Utility Classes */
+.pwa-voice-container {
+  background: hsl(var(--pwa-background));
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+}
+
+.pwa-glow-primary {
+  box-shadow: 0 0 30px hsl(var(--pwa-primary-glow));
+}
+
+.pwa-glow-listening {
+  box-shadow: 0 0 30px hsl(var(--pwa-listening-glow));
+}
+
+.pwa-glow-success {
+  box-shadow: 0 0 30px hsl(var(--pwa-success-glow));
+}
+
+.pwa-border-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.pwa-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    hsl(var(--pwa-primary)) 60deg,
+    hsl(var(--pwa-primary-glow)) 120deg,
+    transparent 180deg
+  );
+  animation: pwa-rotate-glow 3s linear infinite;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.pwa-animate-pulse-mic {
+  animation: pwa-pulse-mic 1.5s ease-in-out infinite;
+}
+
+.pwa-animate-pulse-mic-fast {
+  animation: pwa-pulse-mic-fast 0.5s ease-in-out infinite;
+}
+
+.pwa-animate-wave-expand {
+  animation: pwa-wave-expand 2s ease-out infinite;
+}
+
+.pwa-animate-star-twinkle {
+  animation: pwa-star-twinkle 2s ease-in-out infinite;
+}
+
+.pwa-animate-morph-in {
+  animation: pwa-morph-in 0.5s ease-out forwards;
+}
+
+.pwa-animate-morph-out {
+  animation: pwa-morph-out 0.3s ease-in forwards;
+}
+
+/* Splash Screen - Gradient shift for text */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============================================
+   Safe Area para iOS - UnifiedFooter
+   ============================================ */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.h-safe-area-inset-bottom {
+  height: env(safe-area-inset-bottom, 0px);
+}
+
+/* Animação de pulso vermelho para bolinha do histórico */
+@keyframes pulse-red {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-red {
+  animation: pulse-red 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   SAFARI/iOS COMPATIBILITY
+   ============================================ */
+
+/* Safe Area Insets para iPhone com notch */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-area-left {
+  padding-left: env(safe-area-inset-left, 0px);
+}
+
+.safe-area-right {
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* Altura mínima considerando safe area */
+.min-h-screen-safe {
+  min-height: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+}
+
+/* Fix para bounce no Safari iOS */
+html, body {
+  overscroll-behavior: none;
+}
+
+/* Fix para input zoom no iOS (fonte < 16px causa zoom) */
+@supports (-webkit-touch-callout: none) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Fix para botões no iOS */
+button {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch action para melhor responsividade */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Prevenir seleção de texto em elementos interativos */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Fix para sticky no Safari */
+.sticky-safari {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/* Fix para backdrop-blur no Safari */
+@supports (-webkit-backdrop-filter: blur(10px)) {
+  .backdrop-blur-safari {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}

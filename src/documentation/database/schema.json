@@ -1,0 +1,150 @@
+{
+  "title": "Database Schema Documentation",
+  "generated_at": "2025-11-30T00:00:00Z",
+  "description": "Complete PostgreSQL database schema for KnowRisk platform",
+  "tables": [
+    {
+      "name": "documents",
+      "description": "Stores PDF documents processed by the RAG system",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "description": "Primary key"
+        },
+        {
+          "name": "filename",
+          "type": "text",
+          "nullable": false,
+          "description": "Original PDF filename"
+        },
+        {
+          "name": "original_text",
+          "type": "text",
+          "nullable": false,
+          "description": "Extracted text from PDF"
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "nullable": true,
+          "default": "pending",
+          "description": "Processing status: pending, processing, completed, failed"
+        },
+        {
+          "name": "target_chat",
+          "type": "text",
+          "nullable": false,
+          "description": "Auto-categorized destination: health, study, general"
+        },
+        {
+          "name": "ai_summary",
+          "type": "text",
+          "nullable": true,
+          "description": "AI-generated summary (150-300 words)"
+        },
+        {
+          "name": "total_chunks",
+          "type": "integer",
+          "nullable": true,
+          "default": 0,
+          "description": "Number of chunks generated"
+        }
+      ],
+      "rls_enabled": true,
+      "policies": [
+        {
+          "name": "Admins can manage documents",
+          "command": "ALL",
+          "using": "has_role(auth.uid(), 'admin')"
+        },
+        {
+          "name": "System can insert documents",
+          "command": "INSERT",
+          "using": "true"
+        }
+      ]
+    },
+    {
+      "name": "document_chunks",
+      "description": "Text chunks with embeddings for semantic search",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false,
+          "default": "gen_random_uuid()"
+        },
+        {
+          "name": "document_id",
+          "type": "uuid",
+          "nullable": false,
+          "description": "Foreign key to documents table"
+        },
+        {
+          "name": "content",
+          "type": "text",
+          "nullable": false,
+          "description": "Chunk text content"
+        },
+        {
+          "name": "embedding",
+          "type": "vector(1536)",
+          "nullable": true,
+          "description": "OpenAI text-embedding-3-small vector"
+        },
+        {
+          "name": "chunk_index",
+          "type": "integer",
+          "nullable": false,
+          "description": "Sequential chunk number"
+        }
+      ],
+      "rls_enabled": true
+    },
+    {
+      "name": "conversation_history",
+      "description": "Chat conversation logs for both assistants",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "nullable": false
+        },
+        {
+          "name": "session_id",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "chat_type",
+          "type": "text",
+          "nullable": true,
+          "description": "study or health"
+        },
+        {
+          "name": "messages",
+          "type": "jsonb",
+          "nullable": false,
+          "description": "Array of message objects"
+        }
+      ],
+      "rls_enabled": true
+    }
+  ],
+  "functions": [
+    {
+      "name": "search_documents",
+      "description": "Semantic search using pgvector cosine similarity",
+      "returns": "TABLE",
+      "parameters": [
+        "query_embedding vector(1536)",
+        "target_chat_filter text",
+        "match_threshold float",
+        "match_count integer"
+      ]
+    }
+  ]
+}

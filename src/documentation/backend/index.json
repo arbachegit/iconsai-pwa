@@ -1,0 +1,77 @@
+{
+  "title": "Backend Edge Functions",
+  "generated_at": "2025-11-30T00:00:00Z",
+  "description": "Serverless functions powered by Supabase Edge Runtime",
+  "total_functions": 16,
+  "functions": [
+    {
+      "name": "chat",
+      "description": "Health assistant chat with RAG integration",
+      "auth_required": false,
+      "category": "Chat"
+    },
+    {
+      "name": "chat-study",
+      "description": "Study assistant for company knowledge",
+      "auth_required": false,
+      "category": "Chat"
+    },
+    {
+      "name": "process-bulk-document",
+      "description": "Bulk document processing with auto-categorization",
+      "auth_required": false,
+      "category": "RAG",
+      "features": [
+        "Text validation (min 100 chars)",
+        "Unicode sanitization",
+        "Auto-categorization via LLM",
+        "Hierarchical tag generation",
+        "AI summary generation",
+        "Chunking (1500 words/chunk)",
+        "OpenAI embeddings"
+      ]
+    },
+    {
+      "name": "search-documents",
+      "description": "RAG semantic search with pgvector",
+      "auth_required": false,
+      "category": "RAG"
+    },
+    {
+      "name": "generate-image",
+      "description": "Image generation via google/gemini-3-pro-image",
+      "auth_required": false,
+      "category": "AI"
+    },
+    {
+      "name": "text-to-speech",
+      "description": "ElevenLabs voice synthesis (Fernando Arbache)",
+      "auth_required": true,
+      "category": "Audio"
+    },
+    {
+      "name": "voice-to-text",
+      "description": "OpenAI Whisper transcription",
+      "auth_required": false,
+      "category": "Audio"
+    },
+    {
+      "name": "analyze-sentiment",
+      "description": "Message sentiment analysis",
+      "auth_required": false,
+      "category": "Analytics"
+    },
+    {
+      "name": "youtube-videos",
+      "description": "YouTube API video fetching with caching",
+      "auth_required": false,
+      "category": "Integrations"
+    },
+    {
+      "name": "send-email",
+      "description": "Resend email integration",
+      "auth_required": true,
+      "category": "Integrations"
+    }
+  ]
+}

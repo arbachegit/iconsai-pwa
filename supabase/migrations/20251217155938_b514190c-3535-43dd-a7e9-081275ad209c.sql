@@ -1,0 +1,70 @@
+-- Add pac_year_extrapolated column if not exists
+ALTER TABLE public.pmc_valores_reais 
+ADD COLUMN IF NOT EXISTS pac_year_extrapolated BOOLEAN DEFAULT false;
+
+-- Recreate function to use latest available PAC year for extrapolation
+CREATE OR REPLACE FUNCTION public.process_all_pmc_conversions_batch()
+ RETURNS TABLE(indicator_code text, records_inserted integer)
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+ SET search_path TO 'public'
+AS $function$
+DECLARE
+  v_max_pac_year INTEGER;
+BEGIN
+  -- Get the latest PAC year available
+  SELECT MAX(EXTRACT(YEAR FROM irv.reference_date))::INTEGER INTO v_max_pac_year
+  FROM public.indicator_regional_values irv
+  JOIN public.economic_indicators ei ON ei.id = irv.indicator_id
+  WHERE ei.code LIKE 'PAC_%';
+
+  -- Delete existing rows
+  DELETE FROM public.pmc_valores_reais WHERE true;
+
+  -- Insert computed conversions using LEAST to handle years beyond PAC availability
+  INSERT INTO public.pmc_valores_reais (
+    pmc_indicator_id,
+    pmc_indicator_code,
+    uf_code,
+    reference_date,
+    indice_pmc_original,
+    pac_receita_anual,
+    pac_receita_mensal_media,
+    valor_estimado_reais,
+    pac_year_used,
+    pac_year_extrapolated
+  )
+  SELECT
+    ei_pmc.id,
+    ei_pmc.code,
+    pmc.uf_code,
+    pmc.reference_date,
+    pmc.value as indice_pmc_original,
+    pac.value as pac_receita_anual,
+    pac.value / 12.0 as pac_receita_mensal_media,
+    (pmc.value / 100.0) * (pac.value / 12.0) as valor_estimado_reais,
+    EXTRACT(YEAR FROM pac.reference_date)::INTEGER as pac_year_used,
+    -- Mark as extrapolated if PMC year > PAC year used
+    EXTRACT(YEAR FROM pmc.reference_date)::INTEGER > EXTRACT(YEAR FROM pac.reference_date)::INTEGER as pac_year_extrapolated
+  FROM public.indicator_regional_values pmc
+  JOIN public.economic_indicators ei_pmc ON ei_pmc.id = pmc.indicator_id
+  JOIN public.pac_pmc_mapping m ON m.pmc_indicator_code = ei_pmc.code AND m.is_active = true
+  JOIN public.economic_indicators ei_pac ON ei_pac.code = m.pac_indicator_code
+  JOIN public.indicator_regional_values pac ON pac.indicator_id = ei_pac.id
+    AND pac.uf_code = pmc.uf_code
+    -- Use LEAST to get the latest available PAC year when PMC year is beyond PAC data
+    AND EXTRACT(YEAR FROM pac.reference_date) = LEAST(
+      EXTRACT(YEAR FROM pmc.reference_date)::INTEGER,
+      v_max_pac_year
+    )
+  WHERE ei_pmc.code LIKE 'PMC_%';
+
+  RETURN QUERY
+  SELECT
+    pv.pmc_indicator_code::text,
+    COUNT(*)::integer as records_inserted
+  FROM public.pmc_valores_reais pv
+  GROUP BY pv.pmc_indicator_code
+  ORDER BY pv.pmc_indicator_code;
+END;
+$function$;

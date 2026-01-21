@@ -1,0 +1,370 @@
+project_id = "uhazjwqfsvxqozepyjjj"
+
+# ============================================
+# CHAT FUNCTIONS - Unified Router (Public)
+# ============================================
+[functions.chat-router]
+verify_jwt = false
+
+# ============================================
+# DEEP SEARCH - Knowledge retrieval (Public)
+# ============================================
+[functions.deep-search]
+verify_jwt = false
+
+# ============================================
+# IMAGE GENERATION - Public access
+# ============================================
+[functions.generate-image]
+verify_jwt = false
+
+[functions.generate-section-image]
+verify_jwt = false
+
+[functions.generate-history-image]
+verify_jwt = false
+
+[functions.generate-image-study]
+verify_jwt = false
+
+# ============================================
+# TTS/STT - Public (PWA uses anonymous access)
+# ============================================
+[functions.text-to-speech]
+verify_jwt = false
+
+[functions.voice-to-text]
+verify_jwt = false
+
+# ============================================
+# CLASSIFY AND ENRICH - Taxonomy + Phonetics
+# ============================================
+[functions.classify-and-enrich]
+verify_jwt = false
+
+# ============================================
+# EMAIL & NOTIFICATIONS - Public (for forms)
+# ============================================
+[functions.send-email]
+verify_jwt = false
+
+[functions.contact-form-handler]
+verify_jwt = false
+
+# ============================================
+# YOUTUBE & SPOTIFY - Public
+# ============================================
+[functions.youtube-videos]
+verify_jwt = false
+
+[functions.fetch-spotify-metadata]
+verify_jwt = false
+
+# ============================================
+# SENTIMENT ANALYSIS - Public
+# ============================================
+[functions.analyze-sentiment]
+verify_jwt = false
+
+[functions.sentiment-alert]
+verify_jwt = false
+
+[functions.analyze-deterministic]
+verify_jwt = false
+
+[functions.classify-message]
+verify_jwt = false
+
+# ============================================
+# DOCUMENT PROCESSING - Public (used by chat)
+# ============================================
+[functions.process-document-with-text]
+verify_jwt = false
+
+[functions.suggest-document-tags]
+verify_jwt = false
+
+[functions.generate-document-summary]
+verify_jwt = false
+
+[functions.search-documents]
+verify_jwt = false
+
+[functions.process-bulk-document]
+verify_jwt = false
+
+[functions.extract-pdf-document-ai]
+verify_jwt = false
+
+# ============================================
+# PASSWORD RECOVERY - Public (unauthenticated users)
+# ============================================
+[functions.send-recovery-code]
+verify_jwt = false
+
+[functions.verify-recovery-code]
+verify_jwt = false
+
+[functions.reset-password-with-token]
+verify_jwt = false
+
+# ============================================
+# INVITATION SYSTEM - Public (for invitees)
+# ============================================
+[functions.create-invitation]
+verify_jwt = true
+
+[functions.send-invitation-verification]
+verify_jwt = false
+
+[functions.verify-invitation-code]
+verify_jwt = false
+
+[functions.resend-invitation-code]
+verify_jwt = false
+
+[functions.track-invitation-open]
+verify_jwt = false
+
+[functions.update-invitation]
+verify_jwt = true
+
+# ============================================
+# SECURITY - Public (for reporting violations)
+# ============================================
+[functions.report-security-violation]
+verify_jwt = false
+
+[functions.check-ban-status]
+verify_jwt = false
+
+[functions.check-whitelist]
+verify_jwt = false
+
+[functions.unban-device]
+verify_jwt = false
+
+[functions.add-to-whitelist]
+verify_jwt = false
+
+# ============================================
+# ADMIN FUNCTIONS - REQUIRES AUTHENTICATION
+# ============================================
+[functions.approve-user-registration]
+verify_jwt = true
+
+[functions.reject-user-registration]
+verify_jwt = true
+
+[functions.reset-password-admin]
+verify_jwt = true
+
+[functions.resend-welcome-email]
+verify_jwt = true
+
+[functions.security-integrity-scan]
+verify_jwt = true
+
+[functions.cleanup-stuck-documents]
+verify_jwt = true
+
+[functions.version-control]
+verify_jwt = true
+
+[functions.batch-version-update]
+verify_jwt = true
+
+[functions.generate-documentation]
+verify_jwt = true
+
+[functions.sync-documentation]
+verify_jwt = true
+
+[functions.migrate-timeline-images]
+verify_jwt = true
+
+[functions.migrate-all-images]
+verify_jwt = true
+
+[functions.compress-storage-images]
+verify_jwt = true
+
+[functions.check-ml-accuracy]
+verify_jwt = true
+
+[functions.update-chat-config]
+verify_jwt = true
+
+[functions.check-resend-domain]
+verify_jwt = true
+
+[functions.trigger-daily-scan]
+verify_jwt = true
+
+[functions.send-whatsapp]
+verify_jwt = false
+
+[functions.send-sms]
+verify_jwt = false
+
+[functions.send-notification]
+verify_jwt = false
+
+# ============================================
+# PWA NOTIFICATION - Internal (called by other functions)
+# ============================================
+[functions.send-pwa-notification]
+verify_jwt = false
+
+# ============================================
+# TWILIO CONTENT INSPECTOR - Diagnóstico de templates
+# ============================================
+[functions.twilio-content-inspector]
+verify_jwt = true
+
+# ============================================
+# DATA/SYNC FUNCTIONS - Internal/Admin
+# ============================================
+[functions.check-existing-emails]
+verify_jwt = true
+
+[functions.fetch-economic-data]
+verify_jwt = false
+
+[functions.scrape-retail-news]
+verify_jwt = true
+
+[functions.test-api-connection]
+verify_jwt = true
+
+[functions.compare-and-insert-missing]
+verify_jwt = true
+
+[functions.test-api-staging]
+verify_jwt = true
+
+[functions.auto-sync-indicators]
+verify_jwt = true
+
+[functions.query-indicators]
+verify_jwt = false
+
+[functions.sync-renda-hardcoded]
+verify_jwt = true
+
+# ============================================
+# MIGRATION FUNCTIONS - ONE-TIME (Admin only)
+# ============================================
+[functions.migrate-tags-to-taxonomy]
+verify_jwt = true
+
+# ============================================
+# DOCUMENT PROCESSING V2 - Adaptive Chunking
+# ============================================
+[functions.process-document-v2]
+verify_jwt = false
+
+# ============================================
+# GAP ANALYSIS - Taxonomy vs Documents
+# ============================================
+[functions.analyze-taxonomy-gap]
+verify_jwt = false
+
+# ============================================
+# RECLASSIFICATION - Document taxonomy batch
+# ============================================
+[functions.reclassify-documents]
+verify_jwt = true
+
+# ============================================
+# TAXONOMY AUTO-MANAGER - Suggestions workflow
+# ============================================
+[functions.taxonomy-auto-manager]
+verify_jwt = false
+
+# ============================================
+# DOCUMENT TITLE GENERATION - Lightweight AI
+# ============================================
+[functions.generate-document-title]
+verify_jwt = false
+
+# ============================================
+# SCHEMA MONITORING - Admin access
+# ============================================
+[functions.schema-monitor]
+verify_jwt = true
+
+# ============================================
+# PWA VERIFICATION - Public (for invitees)
+# ============================================
+[functions.send-pwa-verification]
+verify_jwt = false
+
+[functions.send-pwa-verification-direct]
+verify_jwt = false
+
+# ============================================
+# TWILIO STATUS CALLBACK - Public (Twilio webhooks)
+# ============================================
+[functions.twilio-status-callback]
+verify_jwt = false
+
+# ============================================
+# DATAFLOW PRESENTATION - Public (lead capture)
+# ============================================
+[functions.get-presentation-script]
+verify_jwt = false
+
+[functions.capture-dataflow-lead]
+verify_jwt = false
+
+# ============================================
+# WHATSAPP TIER MONITORING - Admin only
+# ============================================
+[functions.update-whatsapp-metrics]
+verify_jwt = true
+
+[functions.check-tier-eligibility]
+verify_jwt = true
+
+[functions.sync-meta-tier]
+verify_jwt = true
+
+# ============================================
+# CONTEXTUAL GREETING - Public (PWA memory)
+# ============================================
+[functions.generate-contextual-greeting]
+verify_jwt = false
+
+[functions.update-user-context]
+verify_jwt = false
+
+# ============================================
+# PWA CONTEXTUAL MEMORY - Module-isolated memory
+# ============================================
+[functions.pwa-contextual-memory]
+verify_jwt = false
+
+# ============================================
+# PWA MESSAGE STORAGE - Public (PWA anonymous)
+# ============================================
+[functions.pwa-save-message]
+verify_jwt = false
+
+[functions.pwa-get-history]
+verify_jwt = false
+
+# ============================================
+# CONTENT ORCHESTRATOR - AI content generation
+# ============================================
+[functions.content-orchestrator]
+verify_jwt = false
+
+# ============================================
+# PWA CITY - AI Integration (OpenAI + Gemini)
+# ============================================
+[functions.pwacity-openai]
+verify_jwt = false
+
+[functions.pwacity-gemini]
+verify_jwt = false

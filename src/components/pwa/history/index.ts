@@ -1,0 +1,3 @@
+// PRD Histórico - Placeholder
+
+export {};

@@ -1,0 +1,27 @@
+{
+  "title": "KnowRisk Technical Documentation",
+  "version": "v2025-11-30",
+  "generated_at": "2025-11-30T00:00:00Z",
+  "description": "Comprehensive technical documentation for the KnowRisk platform",
+  "sections": [
+    {
+      "id": "database",
+      "title": "🗄️ Database",
+      "description": "Database schema, tables, RLS policies, and functions",
+      "file": "database/schema.json"
+    },
+    {
+      "id": "backend",
+      "title": "⚡ Backend",
+      "description": "Edge Functions and serverless backend logic",
+      "file": "backend/index.json"
+    },
+    {
+      "id": "frontend",
+      "title": "🖥️ Frontend",
+      "description": "React components, hooks, and user interface",
+      "file": "frontend/components.json"
+    }
+  ],
+  "mermaid_diagram": "graph TB\n    subgraph Admin[\"🔐 Admin Panel\"]\n        BTN[Gerar Documentação]\n        DOCS[DocumentsTab]\n    end\n    \n    subgraph RAG[\"📚 RAG System\"]\n        PDF[PDF Upload]\n        EXTRACT[Text Extraction]\n        BULK[process-bulk-document]\n        EMBED[OpenAI Embeddings]\n        CHUNKS[(document_chunks)]\n    end\n    \n    subgraph Chat[\"💬 Chat Systems\"]\n        STUDY[Study Assistant]\n        HEALTH[Health Assistant]\n        SEARCH[search-documents]\n    end\n    \n    subgraph DB[\"🗄️ Database\"]\n        DOCS_TBL[(documents)]\n        TAGS_TBL[(document_tags)]\n        CONV[(conversation_history)]\n    end\n    \n    BTN --> DOCS\n    PDF --> EXTRACT\n    EXTRACT --> BULK\n    BULK --> EMBED\n    EMBED --> CHUNKS\n    BULK --> DOCS_TBL\n    BULK --> TAGS_TBL\n    STUDY --> SEARCH\n    HEALTH --> SEARCH\n    SEARCH --> CHUNKS\n    STUDY --> CONV\n    HEALTH --> CONV"
+}

@@ -1,0 +1,79 @@
+{
+  "title": "Frontend Components",
+  "generated_at": "2025-11-30T00:00:00Z",
+  "description": "React components and custom hooks",
+  "components": [
+    {
+      "name": "ChatKnowYOU",
+      "category": "Chat",
+      "description": "Health assistant chat interface",
+      "features": [
+        "RAG context integration",
+        "Voice recording",
+        "Audio playback controls",
+        "Image generation mode",
+        "Contextual suggestions",
+        "Session persistence"
+      ]
+    },
+    {
+      "name": "ChatStudy",
+      "category": "Chat",
+      "description": "Study assistant for company knowledge",
+      "features": [
+        "Company-specific RAG",
+        "Sentiment analysis display",
+        "Voice recording",
+        "3D relief design"
+      ]
+    },
+    {
+      "name": "DocumentsTab",
+      "category": "Admin",
+      "description": "RAG document management panel",
+      "features": [
+        "PDF upload (drag-drop)",
+        "Auto-categorization",
+        "Document reprocessing",
+        "Tag visualization",
+        "Documentation generation"
+      ]
+    },
+    {
+      "name": "AIHistoryPanel",
+      "category": "Educational",
+      "description": "AI evolution timeline modal",
+      "features": [
+        "4-era timeline",
+        "Audio narration sync",
+        "Mobile carousel",
+        "Era jump navigation",
+        "Contextual images"
+      ]
+    },
+    {
+      "name": "DigitalExclusionSection",
+      "category": "Landing Page",
+      "description": "Collapsible digital inequality section",
+      "features": [
+        "Expandable content",
+        "Audio controls",
+        "Generated image"
+      ]
+    }
+  ],
+  "hooks": [
+    {
+      "name": "useChatKnowYOU",
+      "description": "Health chat logic and state management"
+    },
+    {
+      "name": "useChatStudy",
+      "description": "Study chat logic with RAG"
+    },
+    {
+      "name": "useAdminSettings",
+      "description": "Admin panel configuration"
+    }
+  ]
+}

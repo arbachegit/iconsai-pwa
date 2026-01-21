@@ -1,0 +1,18 @@
+# ============================================================
+# KnowYOU PWA - Environment Variables
+# ============================================================
+# Copie este arquivo para .env no projeto knowyou-pwa
+# e preencha com suas credenciais do Supabase
+# ============================================================
+
+# Supabase Configuration
+# Obtenha estas credenciais em: https://app.supabase.com/project/_/settings/api
+VITE_SUPABASE_URL=https://your-project-id.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key-here
+
+# ============================================================
+# IMPORTANTE:
+# - Nunca commite o arquivo .env no Git
+# - Use .env.example para compartilhar a estrutura
+# - Cada desenvolvedor deve ter seu próprio .env local
+# ============================================================

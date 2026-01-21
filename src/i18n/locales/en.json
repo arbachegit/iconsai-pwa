@@ -1,0 +1,362 @@
+{
+  "header": {
+    "software": "Software",
+    "internet": "Internet",
+    "tech": "Technologies",
+    "kubrick": "1969 Kubrick",
+    "watson": "Watson",
+    "newEra": "AI New Era",
+    "knowyou": "KnowYOU",
+    "goodPrompt": "Good Prompt"
+  },
+  "hero": {
+    "title": "Power by KnowYOU",
+    "subtitle": "Transforming Communication in the Age of Artificial Intelligence",
+    "description": "Explore the journey of technological evolution and discover how AI is revolutionizing communication in the healthcare sector with KnowYOU.",
+    "ctaHealth": "Learn more about Health",
+    "ctaStudy": "Chat with KnowYOU",
+    "ctaHistory": "Explore AI history",
+    "ctaHealthTooltip": "Navigate to the interactive KnowYOU section to chat with the health assistant",
+    "ctaStudyTooltip": "Navigate to the interactive KnowYOU section to chat with the study assistant",
+    "ctaHistoryTooltip": "Open interactive timeline showing the evolution of Artificial Intelligence since 1950",
+    "quote": "The exact moment we stopped just operating machines and started, in fact, thinking with them.",
+    "quoteAuthor": "by Fernando Arbache"
+  },
+  "sections": {
+    "software": {
+      "title": "The First Revolution",
+      "subtitle": "1940s-1980",
+      "quote": "The exact moment we stopped just operating machines and started, in fact, thinking with them.",
+      "quoteAuthor": "Fernando Arbache",
+      "content1": "Software represented the first major communication between humans and machines. Through programming languages, we were able to instruct computers to perform complex tasks. It was rigid, technical communication, accessible only to specialists.",
+      "content2": "This era marked the beginning of digital transformation, establishing the foundation for all technological revolutions that would follow."
+    },
+    "internet": {
+      "title": "The Age of Connectivity",
+      "subtitle": "1990s-2000",
+      "quote": "The internet didn't just shorten geographical distances; it intertwined humanity's destiny into a single pulsating network.",
+      "quoteAuthor": "Fernando Arbache",
+      "content1": "The Internet democratized access to information and completely transformed how we communicate. Suddenly, the entire world was connected, sharing knowledge on a global scale.",
+      "content2": "This revolution not only connected computers, but connected people, cultures, and ideas in ways never before imagined."
+    },
+    "techNoPropose": {
+      "title": "The Technology Hype",
+      "subtitle": "2020-2022",
+      "quote": "Without a clear purpose, innovation ceases to be a tool of progress and becomes merely a sophisticated distraction.",
+      "quoteAuthor": "Fernando Arbache",
+      "content1": "Not every technological innovation finds its purpose. The Metaverse and NFTs promised to revolutionize the digital world, but lacked practical application and real value to users.",
+      "content2": "This phase taught us valuable lessons about the difference between technological innovation and innovation with real purpose for society."
+    },
+    "kubrick": {
+      "title": "Kubrick's Prophecy",
+      "subtitle": "1969 - 2001: A Space Odyssey",
+      "quote": "Now that the fiction of 2001 has become reality, the mystery is no longer the machine's capability, but the human intention behind it.",
+      "quoteAuthor": "Fernando Arbache",
+      "content1": "In 1969, Stanley Kubrick introduced us to HAL 9000, an AI that not only processed commands, but conversed, understood context, and had personality. It was an impressive premonition of the future we're living today.",
+      "content2": "What seemed like science fiction 50 years ago became reality with the advent of large language models and conversational AI assistants."
+    },
+    "watson": {
+      "title": "Watson: The Age of Cognition",
+      "subtitle": "2004 - IBM Watson",
+      "quote": "By teaching a machine to read nuances, we discovered that true intelligence isn't in giving answers, but in understanding the questions.",
+      "quoteAuthor": "Fernando Arbache",
+      "content1": "IBM Watson marked the beginning of the cognitive era, demonstrating that machines could not only process data, but understand natural language, reason, and learn.",
+      "content2": "Its victory on Jeopardy! in 2011 was a historic milestone, proving that AI could compete with humans in tasks requiring broad knowledge and contextual understanding."
+    },
+    "newEra": {
+      "title": "The New AI Era",
+      "subtitle": "2022 - Present",
+      "quote": "By democratizing intelligence, we're not just updating the world's software, but rewriting each human being's potential.",
+      "quoteAuthor": "Fernando Arbache",
+      "content1": "With ChatGPT and similar models, we entered a new era where communication with machines is natural, fluid, and accessible to everyone. The technical barrier has been eliminated.",
+      "content2": "Now, anyone can converse with an AI as they would with a human expert, opening infinite possibilities in education, health, business, and much more."
+    },
+    "knowyou": {
+      "title": "KnowYOU: Reskilling in the AI Era",
+      "subtitle": "Conversational Technology in Healthcare",
+      "content1": "The Long Tail problem reveals a critical challenge: most people don't know how to communicate effectively with AI. This is where KnowYOU comes in.",
+      "content2": "Our conversational technology was specially developed for the healthcare sector, making AI communication natural and productive for all professionals, regardless of their technical knowledge."
+    },
+    "goodPrompt": {
+      "title": "The Art of Good Prompting",
+      "subtitle": "Effective Communication with AI",
+      "quote": "The quality of the answer depends on the quality of the question.",
+      "quoteAuthor": "Fernando Arbache",
+      "content1": "Knowing how to ask the right questions is fundamental in the AI era. A good prompt is clear, specific, contextualized, and directed to the desired objective.",
+      "content2": "KnowYOU not only answers your questions but teaches you to communicate better with AI, developing an essential skill for the future of healthcare work.",
+      "beSpecific": "Be Specific",
+      "beSpecificDesc": "Instead of 'talk about diabetes,' ask 'what are the main indicators for diagnosing type 2 diabetes in adults?'",
+      "giveContext": "Provide Context",
+      "giveContextDesc": "Explain your situation, your role, and what you need to achieve with the answer.",
+      "iterateRefine": "Iterate and Refine",
+      "iterateRefineDesc": "Don't be afraid to ask follow-up questions to get exactly the information you need."
+    }
+  },
+  "digitalExclusion": {
+    "title": "5.74 billion",
+    "subtitle": "people still cannot access the internet",
+    "expandText": "Learn more about this challenge",
+    "content1": "While we celebrate advances in artificial intelligence and its capacity to transform industries, communication, and knowledge, a disturbing reality remains: 5.74 billion people worldwide still don't have internet access. This digital exclusion represents not just a technological barrier, but an abyss of opportunities that widens exponentially in the generative AI era.",
+    "content2": "The democratization of artificial intelligence fundamentally depends on connectivity access. Without internet, billions of people are excluded not only from AI tools but also from the literacy needed to understand, question, and use these technologies critically and productively.",
+    "content3": "Beyond infrastructure barriers, we face linguistic and cognitive challenges: most AI models are trained predominantly in English, and even when available in other languages, require a level of digital literacy that much of the global population still lacks. The true AI revolution will only be complete when we manage to include these 5.74 billion voices in the conversation."
+  },
+  "aiHistory": {
+    "title": "The History of Artificial Intelligence",
+    "close": "Close",
+    "timeline": {
+      "title": "The Definitive Timeline: From Talos to the AI Fever",
+      "talos": {
+        "title": "Talos, the Bronze Giant",
+        "description": "What it is: A bronze automaton, made by Hephaestus, designed to protect the island of Crete.\n\nImpact on AI: Talos is the first philosophical concept of an autonomous machine. Although mythical, it establishes the human idea of creating an artificial being with a specific purpose (security/surveillance) that operates without constant human intervention. This plants the seed for Robotics and Autonomous Agent Systems, precursors of bots and modern operational AI."
+      },
+      "telegraphy-cards": {
+        "title": "Telegraphy and Punched Cards",
+        "description": "Telegraphy: The earliest form of telegraphy (Claude Chappe's optical telegraph) emerged in the late 18th century (c. 1790). The electric telegraph, revolutionary for communication and data encoding, was developed by Samuel Morse and Alfred Vail from 1837.\n\nPunched Cards: First used in the Jacquard Loom (1801) to automate weaving patterns. Herman Hollerith popularized their use for data processing and storage in the 1890 US census.\n\nImpact on AI: Established the foundations of information encoding and automated data processing, direct precursors of modern computing."
+      },
+      "turing-machine": {
+        "title": "Turing Machine",
+        "description": "Alan Turing establishes the theoretical foundation of computing, describing the abstract model of a universal computer capable of solving any computable problem."
+      },
+      "enigma": {
+        "title": "Breaking the Enigma Code",
+        "description": "Alan Turing uses precursor machines to digital computers (Bombes) to decipher German encryption, linking logical machines to information security."
+      },
+      "turing-test": {
+        "title": "Turing Test",
+        "description": "Alan Turing proposes the 'Imitation Game', which becomes the philosophical goal of Artificial Intelligence: creating machines that can converse like humans."
+      },
+      "arpanet": {
+        "title": "ARPANET - First Connection",
+        "description": "The embryo of the Internet, using packet switching to create a decentralized and fault-resistant network. First message sent between computers."
+      },
+      "tcpip": {
+        "title": "TCP/IP Concept",
+        "description": "Vinton Cerf and Robert Kahn establish the TCP/IP protocol, the fundamental language that enables global communication between heterogeneous networks."
+      },
+      "www": {
+        "title": "World Wide Web (WWW)",
+        "description": "Tim Berners-Lee proposes the hypertext system (links), making the Internet accessible and navigable to the general public through web browsers."
+      },
+      "social": {
+        "title": "Facebook and Orkut - Web 2.0",
+        "description": "Beginning of Web 2.0, focused on social interaction and user-generated content. Social networks transform how we communicate online."
+      },
+      "watson": {
+        "title": "IBM Watson wins Jeopardy!",
+        "description": "IBM's Watson supercomputer defeats human champions on Jeopardy!, demonstrating AI's ability to process Natural Language and complex knowledge in real-time."
+      },
+      "openai": {
+        "title": "OpenAI Foundation",
+        "description": "Organization created with the goal of ensuring that Artificial General Intelligence (AGI) benefits all of humanity, prioritizing safety and ethics."
+      },
+      "gpt3": {
+        "title": "GPT-3 Launch",
+        "description": "The language model generates texts indistinguishable from human-written texts. Revolutionizes natural language processing and drives research in Large Language Models."
+      },
+      "chatgpt": {
+        "title": "ChatGPT Launch",
+        "description": "The GPT-3.5 chat interface becomes a viral phenomenon. Marks the beginning of the 'AI Fever', making generative AI a mass consumer tool."
+      },
+      "current": {
+        "title": "Web 3.0, Veo and LLMs",
+        "description": "Consolidation of Generative AI (LLMs like Gemini and GPT-4), video creation tools like Veo, and the expansion of the Internet of Things. AI becomes an essential part of Internet infrastructure."
+      }
+    },
+    "eras": {
+      "dream": {
+        "title": "The Dream (Before 1950)",
+        "subtitle": "Where everything was science fiction and human desire.",
+        "items": [
+          "Antiquity: Greek myths already spoke of automatons and statues that came to life (like Talos, the bronze giant).",
+          "1843 - The 'Grandmother' of Programming: Ada Lovelace writes the first algorithm for a machine.",
+          "1920 - The word 'Robot' is born: A Czech play (R.U.R.) uses the term for the first time."
+        ]
+      },
+      "birth": {
+        "title": "The Birth (1950s)",
+        "subtitle": "Where AI gains a name and takes its first steps.",
+        "items": [
+          "1950 - The Turing Test: Alan Turing poses the question: 'Can machines think?'",
+          "1956 - The Baptism: Dartmouth Conference officially coins the term 'Artificial Intelligence'.",
+          "1957 - Perceptron: Frank Rosenblatt creates a machine that tries to mimic a neuron."
+        ]
+      },
+      "childhood": {
+        "title": "Childhood and Adolescence (1960s to 1980s)",
+        "subtitle": "Ups and downs, rebellion, and Hollywood movies.",
+        "items": [
+          "1966 - ELIZA, the 'Psychologist': The first chatbot in history!",
+          "1970s - The AI Winter: Promises were too big and technology didn't deliver.",
+          "1980s - The Return: AI comes back with 'Expert Systems'.",
+          "The Terminator (1984): Cinema creates the image of AI as a villain."
+        ]
+      },
+      "adulthood": {
+        "title": "The Adult Phase (1990s and 2000s)",
+        "subtitle": "AI starts beating humans and entering our homes.",
+        "items": [
+          "1997 - Checkmate: Computer Deep Blue (IBM) defeats Garry Kasparov at chess.",
+          "2002 - Roomba: AI enters your living room... to vacuum.",
+          "2011 - 'Hey, Siri': We start talking to our phones."
+        ]
+      },
+      "revolution": {
+        "title": "The Generative Revolution (2010s to Today)",
+        "subtitle": "AI stops just analyzing and starts CREATING.",
+        "items": [
+          "2012 - The 'Big Bang' of Deep Learning: Neural networks learn to identify cats on YouTube by themselves.",
+          "2016 - AlphaGo: AI defeats the world Go champion with 'creative' moves.",
+          "2017 - The Transformer: Google publishes a paper that changes everything.",
+          "2022/2023 - The ChatGPT and Gemini Era: AI 'breaks out of the cage'."
+        ]
+      }
+    }
+  },
+  "chat": {
+    "healthTitle": "KnowYOU",
+    "healthSubtitle": "AI Health Assistant",
+    "studyTitle": "AI Assistant to help you study",
+    "studyModalTitle": "Talk to KnowYOU",
+    "greeting": "Hello! I'm KnowYOU",
+    "greetingDesc": "Your specialized health assistant. How can I help you today?",
+    "placeholder": "Type your message about health...",
+    "placeholderHealth": "Here you can search about health, hospital administration and Hospital Moinhos de Vento.",
+    "placeholderStudy": "Here you can search about various AI topics and about the KnowYOU AI that manages this tool.",
+    "placeholderImage": "Describe the educational health image you want to generate...",
+    "placeholderImageStudy": "Describe the educational image you want to generate...",
+    "imageLimitHealth": "Images limited to health content",
+    "imageLimitStudy": "Images limited to AI and KnowRISK",
+    "suggestions": "Suggestions:",
+    "imageSuggestions": "Image Suggestions:",
+    "typing": "Typing...",
+    "transcribing": "Transcribing...",
+    "listening": "Listening... (speak naturally)",
+    "waiting": "Waiting...",
+    "processing": "Processing...",
+    "voiceTimeout": "Dictation ends after 5 seconds of silence",
+    "generatingImage": "Generating image...",
+    "generatingAudio": "Generating audio...",
+    "thinking": "Thinking...",
+    "clear": "Clear",
+    "speechNotAvailable": "Speech recognition not available",
+    "speechFallback": "Using alternative transcription method.",
+    "micError": "Error activating microphone",
+    "micPermissions": "Check your browser permissions.",
+    "transcriptionError": "Transcription error",
+    "transcriptionRetry": "Could not transcribe audio. Please try again.",
+    "imageRejected": "Image not allowed",
+    "imageGuardrailHealth": "Only health-related images are allowed in this chat.",
+    "imageGuardrailStudy": "Only AI and KnowRISK-related images are allowed in this chat.",
+    "imageGenerationError": "Could not generate the image. Please try again.",
+    "copied": "Text copied!",
+    "copyFailed": "Copy failed",
+    "miniPlayer": {
+      "stop": "Stop",
+      "close": "Close"
+    }
+  },
+  "audio": {
+    "play": "Play",
+    "loading": "Loading...",
+    "pause": "Pause",
+    "stop": "Stop",
+    "generating": "Generating audio...",
+    "download": "Download",
+    "downloadImage": "Download image",
+    "copy": "Copy",
+    "notAvailable": "Audio unavailable",
+    "playError": "Error playing audio"
+  },
+  "turingLegacy": {
+    "title": "Turing's Legacy",
+    "quote": "Long before we talked to computers, he dared to ask if they could think. Breaking Enigma won the war, but the 'Imitation Game' won time.",
+    "author": "by Fernando Arbache"
+  },
+  "footer": {
+    "tagline": "Revolutionizing Reskilling in the AI Era",
+    "copyright": "© 2024 KnowYOU by KnowRisk. All rights reserved."
+  },
+  "floatingButton": {
+    "tooltip": "Talk to KnowYOU"
+  },
+  "documentAttach": {
+    "title": "📎 Attach Health Document",
+    "loading": "Loading...",
+    "noDocuments": "No health documents available",
+    "noDocumentsDesc": "Upload documents in the admin panel",
+    "chunks": "chunks",
+    "readable": "✓ Readable",
+    "attached": "Document Attached",
+    "attachedDesc": "The document \"{{documentName}}\" has been attached to the conversation.",
+    "removed": "Document Removed",
+    "removedDesc": "The document context has been removed from the conversation.",
+    "disclaimerTitle": "⚠️ Disclaimer - New Content Added",
+    "disclaimerMessage": "The document \"{{documentName}}\" has been attached to this conversation's context. Responses now include specific information from this document. Click X to remove.",
+    "removeButton": "Remove document"
+  },
+  "documentRouting": {
+    "title": "Document Requires Destination Definition",
+    "description": "The document \"{{filename}}\" was classified as General. Choose where to apply it to activate appropriate guardrails:",
+    "suggestedTags": "Suggested tags:",
+    "health": "Health",
+    "healthDesc": "Health and medicine",
+    "study": "Study",
+    "studyDesc": "KnowRISK and ACC",
+    "both": "Both",
+    "bothDesc": "Both chats",
+    "general": "General",
+    "generalDesc": "Keep as is"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "emailLabel": "Your Email",
+    "emailPlaceholder": "your@email.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "What is your message about?",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "cancel": "Cancel",
+    "send": "Send",
+    "sending": "Sending...",
+    "successTitle": "Message sent!",
+    "successDescription": "We will get back to you soon.",
+    "errorTitle": "Error sending",
+    "errorDescription": "Please try again later.",
+    "invalidEmailTitle": "Invalid email",
+    "invalidEmailDescription": "Please enter a valid email address.",
+    "emailError": "Please enter a valid email (e.g., name@domain.com)",
+    "subjectError": "Subject must be at least 3 characters",
+    "messageError": "Message must be at least 10 characters",
+    "button": "Contact us",
+    "rateLimitTitle": "Please wait",
+    "rateLimitDescription": "You can send another message in {{seconds}} seconds",
+    "cooldownMessage": "Wait {{seconds}}s"
+  },
+  "admin": {
+    "panel": "Admin Panel",
+    "dataAnalytics": "Data Analytics",
+    "documentation": "Documentation",
+    "backToApp": "Back to App",
+    "logout": "Logout",
+    "notifications": {
+      "title": "Notification Preferences",
+      "targetPhone": "Phone Number",
+      "emailNotification": "Email Notification",
+      "whatsappNotification": "WhatsApp Notification",
+      "testEmail": "Test Email",
+      "testWhatsapp": "Test WhatsApp",
+      "whatsappConfig": "WhatsApp Configuration",
+      "enableGlobally": "Enable WhatsApp Globally",
+      "eventTypes": "Event Types",
+      "testSection": "Test Notifications",
+      "eventLabels": {
+        "newDocument": "New RAG Document",
+        "documentFailed": "Processing Failure",
+        "newContactMessage": "New Contact Message",
+        "securityAlert": "Security Alert",
+        "mlAccuracyDrop": "ML Accuracy Drop",
+        "newConversation": "New User Conversation"
+      }
+    }
+  }
+}
