@@ -1,6 +1,6 @@
 {
-  "name": "KnowYOU Voice Assistant",
-  "short_name": "KnowYOU",
+  "name": "IconsAI Voice Assistant",
+  "short_name": "IconsAI",
   "description": "Seu assistente de voz inteligente",
   "start_url": "/pwa",
   "display": "standalone",
