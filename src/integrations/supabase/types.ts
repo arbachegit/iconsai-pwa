@@ -10,7 +10,7 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "13.0.5"
+    PostgrestVersion: "14.1"
   }
   public: {
     Tables: {
@@ -1087,42 +1087,6 @@ export type Database = {
           tokens_input?: number | null
           tokens_output?: number | null
           user_id?: string | null
-        }
-        Relationships: []
-      }
-      crm_visits: {
-        Row: {
-          created_at: string | null
-          duration_seconds: number | null
-          id: string
-          ip_address: string | null
-          page_url: string | null
-          referrer: string | null
-          session_id: string | null
-          user_agent: string | null
-          visitor_id: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          duration_seconds?: number | null
-          id?: string
-          ip_address?: string | null
-          page_url?: string | null
-          referrer?: string | null
-          session_id?: string | null
-          user_agent?: string | null
-          visitor_id?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          duration_seconds?: number | null
-          id?: string
-          ip_address?: string | null
-          page_url?: string | null
-          referrer?: string | null
-          session_id?: string | null
-          user_agent?: string | null
-          visitor_id?: string | null
         }
         Relationships: []
       }
@@ -2232,6 +2196,33 @@ export type Database = {
         }
         Relationships: []
       }
+      municipal_indicators: {
+        Row: {
+          ano: number
+          codigo_municipio: string
+          created_at: string | null
+          id: string
+          indicator_code: string
+          valor: number | null
+        }
+        Insert: {
+          ano: number
+          codigo_municipio: string
+          created_at?: string | null
+          id?: string
+          indicator_code: string
+          valor?: number | null
+        }
+        Update: {
+          ano?: number
+          codigo_municipio?: string
+          created_at?: string | null
+          id?: string
+          indicator_code?: string
+          valor?: number | null
+        }
+        Relationships: []
+      }
       municipal_indices: {
         Row: {
           calculated_at: string | null
@@ -2831,42 +2822,6 @@ export type Database = {
         }
         Relationships: []
       }
-      podcast_contents: {
-        Row: {
-          audio_url: string | null
-          created_at: string | null
-          description: string | null
-          duration_seconds: number | null
-          id: string
-          published_at: string | null
-          tags: Json | null
-          title: string | null
-          transcript: string | null
-        }
-        Insert: {
-          audio_url?: string | null
-          created_at?: string | null
-          description?: string | null
-          duration_seconds?: number | null
-          id?: string
-          published_at?: string | null
-          tags?: Json | null
-          title?: string | null
-          transcript?: string | null
-        }
-        Update: {
-          audio_url?: string | null
-          created_at?: string | null
-          description?: string | null
-          duration_seconds?: number | null
-          id?: string
-          published_at?: string | null
-          tags?: Json | null
-          title?: string | null
-          transcript?: string | null
-        }
-        Relationships: []
-      }
       presentation_scripts: {
         Row: {
           content: string | null
@@ -3356,6 +3311,36 @@ export type Database = {
           verification_code?: string | null
           verification_code_expires_at?: string | null
           verified_at?: string | null
+        }
+        Relationships: []
+      }
+      pwacity_config: {
+        Row: {
+          config_key: string
+          config_type: string | null
+          config_value: string | null
+          created_at: string | null
+          description: string | null
+          id: string
+          updated_at: string | null
+        }
+        Insert: {
+          config_key: string
+          config_type?: string | null
+          config_value?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          updated_at?: string | null
+        }
+        Update: {
+          config_key?: string
+          config_type?: string | null
+          config_value?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          updated_at?: string | null
         }
         Relationships: []
       }
@@ -4274,39 +4259,6 @@ export type Database = {
           status?: string | null
           suggested_category?: string | null
           term?: string | null
-        }
-        Relationships: []
-      }
-      tooltip_contents: {
-        Row: {
-          category: string | null
-          content: string
-          created_at: string | null
-          id: string
-          is_active: boolean | null
-          title: string | null
-          tooltip_key: string
-          updated_at: string | null
-        }
-        Insert: {
-          category?: string | null
-          content: string
-          created_at?: string | null
-          id?: string
-          is_active?: boolean | null
-          title?: string | null
-          tooltip_key: string
-          updated_at?: string | null
-        }
-        Update: {
-          category?: string | null
-          content?: string
-          created_at?: string | null
-          id?: string
-          is_active?: boolean | null
-          title?: string | null
-          tooltip_key?: string
-          updated_at?: string | null
         }
         Relationships: []
       }
