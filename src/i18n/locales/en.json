@@ -6,18 +6,18 @@
     "kubrick": "1969 Kubrick",
     "watson": "Watson",
     "newEra": "AI New Era",
-    "knowyou": "KnowYOU",
+    "knowyou": "IconsAI",
     "goodPrompt": "Good Prompt"
   },
   "hero": {
-    "title": "Power by KnowYOU",
+    "title": "Power by IconsAI",
     "subtitle": "Transforming Communication in the Age of Artificial Intelligence",
-    "description": "Explore the journey of technological evolution and discover how AI is revolutionizing communication in the healthcare sector with KnowYOU.",
+    "description": "Explore the journey of technological evolution and discover how AI is revolutionizing communication in the healthcare sector with IconsAI.",
     "ctaHealth": "Learn more about Health",
-    "ctaStudy": "Chat with KnowYOU",
+    "ctaStudy": "Chat with IconsAI",
     "ctaHistory": "Explore AI history",
-    "ctaHealthTooltip": "Navigate to the interactive KnowYOU section to chat with the health assistant",
-    "ctaStudyTooltip": "Navigate to the interactive KnowYOU section to chat with the study assistant",
+    "ctaHealthTooltip": "Navigate to the interactive IconsAI section to chat with the health assistant",
+    "ctaStudyTooltip": "Navigate to the interactive IconsAI section to chat with the study assistant",
     "ctaHistoryTooltip": "Open interactive timeline showing the evolution of Artificial Intelligence since 1950",
     "quote": "The exact moment we stopped just operating machines and started, in fact, thinking with them.",
     "quoteAuthor": "by Fernando Arbache"
@@ -72,9 +72,9 @@
       "content2": "Now, anyone can converse with an AI as they would with a human expert, opening infinite possibilities in education, health, business, and much more."
     },
     "knowyou": {
-      "title": "KnowYOU: Reskilling in the AI Era",
+      "title": "IconsAI: Reskilling in the AI Era",
       "subtitle": "Conversational Technology in Healthcare",
-      "content1": "The Long Tail problem reveals a critical challenge: most people don't know how to communicate effectively with AI. This is where KnowYOU comes in.",
+      "content1": "The Long Tail problem reveals a critical challenge: most people don't know how to communicate effectively with AI. This is where IconsAI comes in.",
       "content2": "Our conversational technology was specially developed for the healthcare sector, making AI communication natural and productive for all professionals, regardless of their technical knowledge."
     },
     "goodPrompt": {
@@ -83,7 +83,7 @@
       "quote": "The quality of the answer depends on the quality of the question.",
       "quoteAuthor": "Fernando Arbache",
       "content1": "Knowing how to ask the right questions is fundamental in the AI era. A good prompt is clear, specific, contextualized, and directed to the desired objective.",
-      "content2": "KnowYOU not only answers your questions but teaches you to communicate better with AI, developing an essential skill for the future of healthcare work.",
+      "content2": "IconsAI not only answers your questions but teaches you to communicate better with AI, developing an essential skill for the future of healthcare work.",
       "beSpecific": "Be Specific",
       "beSpecificDesc": "Instead of 'talk about diabetes,' ask 'what are the main indicators for diagnosing type 2 diabetes in adults?'",
       "giveContext": "Provide Context",
@@ -213,15 +213,15 @@
     }
   },
   "chat": {
-    "healthTitle": "KnowYOU",
+    "healthTitle": "IconsAI",
     "healthSubtitle": "AI Health Assistant",
     "studyTitle": "AI Assistant to help you study",
-    "studyModalTitle": "Talk to KnowYOU",
-    "greeting": "Hello! I'm KnowYOU",
+    "studyModalTitle": "Talk to IconsAI",
+    "greeting": "Hello! I'm IconsAI",
     "greetingDesc": "Your specialized health assistant. How can I help you today?",
     "placeholder": "Type your message about health...",
     "placeholderHealth": "Here you can search about health, hospital administration and Hospital Moinhos de Vento.",
-    "placeholderStudy": "Here you can search about various AI topics and about the KnowYOU AI that manages this tool.",
+    "placeholderStudy": "Here you can search about various AI topics and about the IconsAI AI that manages this tool.",
     "placeholderImage": "Describe the educational health image you want to generate...",
     "placeholderImageStudy": "Describe the educational image you want to generate...",
     "imageLimitHealth": "Images limited to health content",
@@ -274,10 +274,10 @@
   },
   "footer": {
     "tagline": "Revolutionizing Reskilling in the AI Era",
-    "copyright": "© 2024 KnowYOU by KnowRisk. All rights reserved."
+    "copyright": "© 2024 IconsAI by KnowRisk. All rights reserved."
   },
   "floatingButton": {
-    "tooltip": "Talk to KnowYOU"
+    "tooltip": "Talk to IconsAI"
   },
   "documentAttach": {
     "title": "📎 Attach Health Document",

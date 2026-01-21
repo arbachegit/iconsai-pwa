@@ -6,18 +6,18 @@
     "kubrick": "1969 Kubrick",
     "watson": "Watson",
     "newEra": "Nouvelle ère IA",
-    "knowyou": "KnowYOU",
+    "knowyou": "IconsAI",
     "goodPrompt": "Bon Prompt"
   },
   "hero": {
-    "title": "Power by KnowYOU",
+    "title": "Power by IconsAI",
     "subtitle": "Transformer la Communication à l'Ère de l'Intelligence Artificielle",
-    "description": "Explorez le parcours de l'évolution technologique et découvrez comment l'IA révolutionne la communication dans le secteur de la santé avec KnowYOU.",
+    "description": "Explorez le parcours de l'évolution technologique et découvrez comment l'IA révolutionne la communication dans le secteur de la santé avec IconsAI.",
     "ctaHealth": "En savoir plus sur la Santé",
-    "ctaStudy": "Discutez avec KnowYOU",
+    "ctaStudy": "Discutez avec IconsAI",
     "ctaHistory": "Explorer l'histoire de l'IA",
-    "ctaHealthTooltip": "Naviguer vers la section interactive KnowYOU pour discuter avec l'assistant de santé",
-    "ctaStudyTooltip": "Naviguer vers la section interactive KnowYOU pour discuter avec l'assistant d'étude",
+    "ctaHealthTooltip": "Naviguer vers la section interactive IconsAI pour discuter avec l'assistant de santé",
+    "ctaStudyTooltip": "Naviguer vers la section interactive IconsAI pour discuter avec l'assistant d'étude",
     "ctaHistoryTooltip": "Ouvrir la chronologie interactive montrant l'évolution de l'Intelligence Artificielle depuis 1950",
     "quote": "Le moment exact où nous avons cessé de simplement opérer des machines et avons commencé, en fait, à penser avec elles.",
     "quoteAuthor": "par Fernando Arbache"
@@ -72,9 +72,9 @@
       "content2": "Maintenant, n'importe qui peut converser avec une IA comme il le ferait avec un expert humain, ouvrant des possibilités infinies dans l'éducation, la santé, les affaires et bien plus encore."
     },
     "knowyou": {
-      "title": "KnowYOU: Requalification à l'Ère de l'IA",
+      "title": "IconsAI: Requalification à l'Ère de l'IA",
       "subtitle": "Technologie Conversationnelle dans la Santé",
-      "content1": "Le problème de la Longue Traîne révèle un défi critique: la plupart des gens ne savent pas comment communiquer efficacement avec l'IA. C'est là qu'intervient KnowYOU.",
+      "content1": "Le problème de la Longue Traîne révèle un défi critique: la plupart des gens ne savent pas comment communiquer efficacement avec l'IA. C'est là qu'intervient IconsAI.",
       "content2": "Notre technologie conversationnelle a été spécialement développée pour le secteur de la santé, rendant la communication avec l'IA naturelle et productive pour tous les professionnels, indépendamment de leurs connaissances techniques."
     },
     "goodPrompt": {
@@ -83,7 +83,7 @@
       "quote": "La qualité de la réponse dépend de la qualité de la question.",
       "quoteAuthor": "Fernando Arbache",
       "content1": "Savoir poser les bonnes questions est fondamental à l'ère de l'IA. Un bon prompt est clair, spécifique, contextualisé et dirigé vers l'objectif souhaité.",
-      "content2": "KnowYOU ne répond pas seulement à vos questions, mais vous apprend à mieux communiquer avec l'IA, développant une compétence essentielle pour l'avenir du travail en santé.",
+      "content2": "IconsAI ne répond pas seulement à vos questions, mais vous apprend à mieux communiquer avec l'IA, développant une compétence essentielle pour l'avenir du travail en santé.",
       "beSpecific": "Soyez Spécifique",
       "beSpecificDesc": "Au lieu de 'parler du diabète', demandez 'quels sont les principaux indicateurs pour diagnostiquer le diabète de type 2 chez les adultes?'",
       "giveContext": "Fournissez du Contexte",
@@ -213,15 +213,15 @@
     }
   },
   "chat": {
-    "healthTitle": "KnowYOU",
+    "healthTitle": "IconsAI",
     "healthSubtitle": "Assistant IA de Santé",
     "studyTitle": "Assistant IA pour vous aider à étudier",
-    "studyModalTitle": "Parlez avec KnowYOU",
-    "greeting": "Bonjour! Je suis KnowYOU",
+    "studyModalTitle": "Parlez avec IconsAI",
+    "greeting": "Bonjour! Je suis IconsAI",
     "greetingDesc": "Votre assistant spécialisé en santé. Comment puis-je vous aider aujourd'hui?",
     "placeholder": "Tapez votre message sur la santé...",
     "placeholderHealth": "Ici vous pouvez rechercher des informations sur la santé, l'administration hospitalière et l'Hospital Moinhos de Vento.",
-    "placeholderStudy": "Ici vous pouvez rechercher divers sujets sur l'IA et sur l'IA KnowYOU qui gère cet outil.",
+    "placeholderStudy": "Ici vous pouvez rechercher divers sujets sur l'IA et sur l'IA IconsAI qui gère cet outil.",
     "placeholderImage": "Décrivez l'image éducative de santé que vous souhaitez générer...",
     "placeholderImageStudy": "Décrivez l'image éducative que vous souhaitez générer...",
     "imageLimitHealth": "Images limitées au contenu de santé",
@@ -274,10 +274,10 @@
   },
   "footer": {
     "tagline": "Révolutionner la Requalification à l'Ère de l'IA",
-    "copyright": "© 2024 KnowYOU par KnowRisk. Tous droits réservés."
+    "copyright": "© 2024 IconsAI par KnowRisk. Tous droits réservés."
   },
   "floatingButton": {
-    "tooltip": "Parler avec KnowYOU"
+    "tooltip": "Parler avec IconsAI"
   },
   "documentAttach": {
     "title": "📎 Joindre un Document de Santé",

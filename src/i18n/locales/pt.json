@@ -6,18 +6,18 @@
     "kubrick": "1969 Kubrick",
     "watson": "Watson",
     "newEra": "IA Nova Era",
-    "knowyou": "KnowYOU",
+    "knowyou": "IconsAI",
     "goodPrompt": "Bom Prompt"
   },
   "hero": {
-    "title": "Power by KnowYOU",
+    "title": "Power by IconsAI",
     "subtitle": "Transformando a Comunicação na Era da Inteligência Artificial",
-    "description": "Explore a jornada da evolução tecnológica e descubra como a IA está revolucionando a comunicação no setor de saúde com o KnowYOU.",
+    "description": "Explore a jornada da evolução tecnológica e descubra como a IA está revolucionando a comunicação no setor de saúde com o IconsAI.",
     "ctaHealth": "Saiba mais a respeito de Saúde",
-    "ctaStudy": "Converse com o KnowYOU",
+    "ctaStudy": "Converse com o IconsAI",
     "ctaHistory": "Explorar a história da IA",
-    "ctaHealthTooltip": "Navegar até a seção interativa do KnowYOU para conversar com o assistente de saúde",
-    "ctaStudyTooltip": "Navegar até a seção interativa do KnowYOU para conversar com o assistente de estudo",
+    "ctaHealthTooltip": "Navegar até a seção interativa do IconsAI para conversar com o assistente de saúde",
+    "ctaStudyTooltip": "Navegar até a seção interativa do IconsAI para conversar com o assistente de estudo",
     "ctaHistoryTooltip": "Abrir linha do tempo interativa mostrando a evolução da Inteligência Artificial desde 1950",
     "quote": "O momento exato em que deixamos de apenas operar máquinas e começamos, de fato, a pensar com elas.",
     "quoteAuthor": "by Fernando Arbache"
@@ -72,9 +72,9 @@
       "content2": "Agora, qualquer pessoa pode conversar com uma IA como conversaria com um especialista humano, abrindo possibilidades infinitas em educação, saúde, negócios e muito mais."
     },
     "knowyou": {
-      "title": "KnowYOU: Reskilling na Era da IA",
+      "title": "IconsAI: Reskilling na Era da IA",
       "subtitle": "Tecnologia Conversacional na Saúde",
-      "content1": "O problema da Cauda Longa de Gauss revela um desafio crítico: a maioria das pessoas não sabe como comunicar-se efetivamente com IA. É aqui que entra o KnowYOU.",
+      "content1": "O problema da Cauda Longa de Gauss revela um desafio crítico: a maioria das pessoas não sabe como comunicar-se efetivamente com IA. É aqui que entra o IconsAI.",
       "content2": "Nossa tecnologia conversacional foi especialmente desenvolvida para o setor de saúde, tornando a comunicação com IA natural e produtiva para todos os profissionais, independente de seu conhecimento técnico."
     },
     "goodPrompt": {
@@ -83,7 +83,7 @@
       "quote": "A qualidade da resposta depende da qualidade da pergunta.",
       "quoteAuthor": "Fernando Arbache",
       "content1": "Saber fazer as perguntas certas é fundamental na era da IA. Um bom prompt é claro, específico, contextualizado e direcionado ao objetivo desejado.",
-      "content2": "O KnowYOU não apenas responde suas perguntas, mas ensina você a se comunicar melhor com IA, desenvolvendo uma habilidade essencial para o futuro do trabalho em saúde.",
+      "content2": "O IconsAI não apenas responde suas perguntas, mas ensina você a se comunicar melhor com IA, desenvolvendo uma habilidade essencial para o futuro do trabalho em saúde.",
       "beSpecific": "Seja Específico",
       "beSpecificDesc": "Em vez de \"fale sobre diabetes\", pergunte \"quais são os principais indicadores para diagnóstico de diabetes tipo 2 em adultos?\"",
       "giveContext": "Forneça Contexto",
@@ -213,15 +213,15 @@
     }
   },
   "chat": {
-    "healthTitle": "KnowYOU",
+    "healthTitle": "IconsAI",
     "healthSubtitle": "Assistente de IA",
     "studyTitle": "Assistente de IA para ajudar a estudar",
-    "studyModalTitle": "Fale com o KnowYOU",
-    "greeting": "Olá! Sou o KnowYOU",
+    "studyModalTitle": "Fale com o IconsAI",
+    "greeting": "Olá! Sou o IconsAI",
     "greetingDesc": "Seu assistente especializado em saúde. Como posso ajudá-lo hoje?",
     "placeholder": "Digite sua mensagem sobre saúde...",
     "placeholderHealth": "Aqui você pode pesquisar a respeito de saúde, administração de hospitais e do Hospital Moinhos de Vento.",
-    "placeholderStudy": "Aqui você pode pesquisar a respeito de diversos assuntos de IA e a respeito da IA KnowYOU que gerencia esta ferramenta.",
+    "placeholderStudy": "Aqui você pode pesquisar a respeito de diversos assuntos de IA e a respeito da IA IconsAI que gerencia esta ferramenta.",
     "placeholderImage": "Descreva a imagem educativa de saúde que deseja gerar...",
     "placeholderImageStudy": "Descreva a imagem educativa que deseja gerar...",
     "imageLimitHealth": "Desenhos limitados a conteúdos de saúde",
@@ -273,10 +273,10 @@
   },
   "footer": {
     "tagline": "Revolucionando o Reskilling na Era da IA",
-    "copyright": "© 2024 KnowYOU by KnowRisk. Todos os direitos reservados."
+    "copyright": "© 2024 IconsAI by KnowRisk. Todos os direitos reservados."
   },
   "floatingButton": {
-    "tooltip": "Fale com o KnowYOU"
+    "tooltip": "Fale com o IconsAI"
   },
   "documentAttach": {
     "title": "📎 Anexar Documento de Saúde",
